@@ -6,7 +6,7 @@ export const CATALOG_CATEGORIES = {
   CUSTOM_BOXES: "Box personalizables",
   FRIENDS_BACHELORETTE: "Entre amigos y despedidas",
   PETS: "Mascotas",
-  CORPORATE_PACKAGING: "Packaging y empresarial",
+  CORPORATE_PACKAGING: "Packaging y regalos corporativos",
   THERMOS_CUPS: "Termos y tazas",
   CREATIVE_STATIONERY: "Papelería creativa",
   INTERNAL: "Inicio",

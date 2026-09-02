@@ -72,7 +72,6 @@ export const categoryTranslations: Record<string, Record<'es' | 'en' | 'fr', str
   'Box personalizables': { es: 'Box personalizables', en: 'Customisable Boxes', fr: 'Box personnalisables' },
   'Termos y tazas': { es: 'Termos y tazas', en: 'Thermos & Mugs', fr: 'Thermos et tasses' },
   'Papelería creativa': { es: 'Papelería creativa', en: 'Creative Stationery', fr: 'Papeterie créative' },
-  'Regalos corporativos': { es: 'Regalos corporativos', en: 'Corporate Gifts', fr: 'Cadeaux d’entreprise' },
   'Packaging y regalos corporativos': { es: 'Packaging y regalos corporativos', en: 'Packaging & Corporate', fr: 'Packaging et goodies d’entreprise' },
 };
 export const productTranslations: Record<string, Partial<Record<'es' | 'en' | 'fr', { name: string; description: string }>>> = {
