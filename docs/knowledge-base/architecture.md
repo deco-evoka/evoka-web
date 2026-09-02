@@ -10,8 +10,8 @@ El repositorio contiene un catálogo estático de Evoka construido con Astro, Ty
 - `src/pages/[lang].astro` genera `/es/`, `/en/` y `/fr/` mediante `getStaticPaths`.
 - `src/pages/productos/[slug].astro` y `src/pages/[lang]/productos/[slug].astro` generan páginas estáticas de detalle para todos los productos: `/productos/<slug>-<id>/`, `/en/productos/<slug>-<id>/` y `/fr/productos/<slug>-<id>/`.
 - `@astrojs/sitemap` genera `sitemap-index.xml` durante el build; `public/robots.txt` lo declara y excluye `/es/` del sitemap porque duplica la portada española `/`.
-- `astro.config.mjs` declara español como locale por defecto, sin prefijo obligatorio, y usa `site: https://pikmr.github.io` con `base: /evoka-astro` en producción. En desarrollo cambia automáticamente a `http://localhost:4321` y `/`.
-- El selector de idioma construye sus enlaces con `assetUrl()`, por lo que conserva el prefijo de publicación (`/evoka-astro/`) en GitHub Pages y funciona también bajo `/` en desarrollo.
+- `astro.config.mjs` declara español como locale por defecto, sin prefijo obligatorio, y usa `site: https://deco-evoka.github.io` con `base: /evoka-web` en producción. En desarrollo cambia automáticamente a `http://localhost:4321` y `/`.
+- El selector de idioma construye sus enlaces con `assetUrl()`, por lo que conserva el prefijo de publicación (`/evoka-web/`) en GitHub Pages y funciona también bajo `/` en desarrollo.
 - `src/components/CatalogPage.astro` compone la página y recibe `locale` (`es`, `en` o `fr`). Las secciones visuales, los modales y sus scripts viven en componentes independientes dentro de `src/components/`.
 
 Existe deliberadamente tanto `/` como `/es/`. No hay redirecciones, canonical URLs ni sitemap configurados en el repositorio.
