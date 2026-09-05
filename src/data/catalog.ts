@@ -853,7 +853,7 @@ export const products: Product[] = [
     "reference": "120570-2",
     "name": "Pantuflas Cacahuete Sweet",
     "slug": "brown-bear-vector-graphics",
-    "price": 33.057851,
+    "price": 20.661157,
     "stock": 1,
     "categories": [
       CATALOG_CATEGORIES.FRIENDSHIP_LOVE,
