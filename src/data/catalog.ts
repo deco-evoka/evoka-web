@@ -636,7 +636,7 @@ export const products: Product[] = [
     "reference": "120571",
     "name": "Taza de Snoopy",
     "slug": "brown-bear-vector-graphics",
-    "price": 16.528926,
+    "price": 20.661157,
     "stock": 0,
     "categories": [
       CATALOG_CATEGORIES.SNOOPY_COLLECTION,
@@ -652,7 +652,7 @@ export const products: Product[] = [
     "reference": "120564",
     "name": "Termo Peanuts Snoopy | 420 ml",
     "slug": "brown-bear-vector-graphics",
-    "price": 20.661157,
+    "price": 16.528926,
     "stock": 1,
     "categories": [
       CATALOG_CATEGORIES.SNOOPY_COLLECTION,
@@ -669,7 +669,7 @@ export const products: Product[] = [
     "reference": "120570-1",
     "name": "Pantuflas Patata Sweet",
     "slug": "brown-bear-vector-graphics",
-    "price": 33.057851,
+    "price": 20.661157,
     "stock": 1,
     "categories": [
       CATALOG_CATEGORIES.FRIENDSHIP_LOVE,
@@ -750,7 +750,7 @@ export const products: Product[] = [
     "reference": "120563",
     "name": "Esterilla tipo nido para mascotas",
     "slug": "esterilla-tipo-nido-para-mascotas",
-    "price": 0,
+    "price": 28.92562,
     "stock": 1,
     "categories": [
       CATALOG_CATEGORIES.PETS,
@@ -800,7 +800,7 @@ export const products: Product[] = [
     "reference": "120565",
     "name": "Termo food grade Snoopy | 420 ml",
     "slug": "botella-food-grade-snoopy-420-ml",
-    "price": 20.661157,
+    "price": 16.528926,
     "stock": 3,
     "categories": [
       CATALOG_CATEGORIES.SNOOPY_COLLECTION,
@@ -819,7 +819,7 @@ export const products: Product[] = [
     "reference": "120567",
     "name": "Termo Happiness Snoopy | 500 ml",
     "slug": "termo-happiness-snoopy",
-    "price": 30,
+    "price": 16.528926,
     "stock": 3,
     "categories": [
       CATALOG_CATEGORIES.SNOOPY_COLLECTION,
@@ -836,7 +836,7 @@ export const products: Product[] = [
     "reference": "120568",
     "name": "Termo classic Snoopy |500ml",
     "slug": "termo-classic-snoopy-500ml",
-    "price": 24.793388,
+    "price": 16.528926,
     "stock": 1,
     "categories": [
       CATALOG_CATEGORIES.SNOOPY_COLLECTION,
@@ -1020,7 +1020,7 @@ export const products: Product[] = [
     "reference": "120557",
     "name": "Termo Mini Snoopy-280ml",
     "slug": "gafas-my-birthday",
-    "price": 20.661157,
+    "price": 12.396694,
     "stock": 10,
     "categories": [
       CATALOG_CATEGORIES.SNOOPY_COLLECTION,
