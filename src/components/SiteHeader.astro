@@ -23,13 +23,17 @@ const flagByLocale = {
     /></a
   >
   <nav aria-label="Navegación principal">
-    <a href="#seleccion">{t("navSelection")}</a>
     <a href="#catalogo">{t("navCatalog")}</a>
     <a href="#categorias">{t("navCategories")}</a>
+    <a href="#seleccion">{t("navSelection")}</a>
+    <a href="#contacto">{t("contact")}</a>
   </nav>
-  <div class="header-actions">
-    <a class="header-contact" href="#contacto"
-      >{t("contact")} <span>↗</span></a
+  <div class="header-utilities">
+    <a class="header-search" href="#catalogo" aria-label={t("searchPlaceholder")}
+      ><svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="10.8" cy="10.8" r="5.8"></circle>
+        <path d="m15.2 15.2 4.3 4.3"></path>
+      </svg></a
     ><div class="language-select">
       <button
         type="button"
@@ -62,6 +66,9 @@ const flagByLocale = {
     "#language-current",
   )!;
   const languageMenu = document.querySelector<HTMLElement>("#language-menu")!;
+  const headerSearch = document.querySelector<HTMLAnchorElement>(
+    ".header-search",
+  );
   languageCurrent.addEventListener("click", () => {
     const isOpen = languageCurrent.getAttribute("aria-expanded") === "true";
     languageCurrent.setAttribute("aria-expanded", String(!isOpen));
@@ -75,5 +82,10 @@ const flagByLocale = {
       languageCurrent.setAttribute("aria-expanded", "false");
       languageMenu.hidden = true;
     }
+  });
+  headerSearch?.addEventListener("click", () => {
+    window.setTimeout(() => {
+      document.querySelector<HTMLInputElement>("#product-search")?.focus();
+    }, 0);
   });
 </script>
