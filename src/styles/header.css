@@ -196,7 +196,7 @@
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 720px) {
   .site-header {
     display: flex;
     gap: 16px;
