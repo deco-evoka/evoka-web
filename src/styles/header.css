@@ -36,7 +36,20 @@
 }
 
 .brand {
+  display: flex;
   flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  color: var(--evoka);
+  text-decoration: none;
+}
+
+.brand-tagline {
+  margin-top: 5px;
+  font: 400 10px/1.1 Futura, 'Futura PT', 'Trebuchet MS', sans-serif;
+  letter-spacing: .25px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .site-header nav {
@@ -222,6 +235,11 @@
   .brand-logo {
     width: 88px;
     height: 58px;
+  }
+
+  .brand-tagline {
+    margin-top: 3px;
+    font-size: 8px;
   }
 }
 
