@@ -32,7 +32,8 @@
   width: 104px;
   height: 68px;
   object-fit: contain;
-  mix-blend-mode: multiply;
+  filter: brightness(0);
+  mix-blend-mode: normal;
 }
 
 .brand {
@@ -40,12 +41,13 @@
   flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
-  color: var(--evoka);
+  color: #000000;
   text-decoration: none;
 }
 
-.brand-tagline {
+.brand .brand-tagline {
   margin-top: 5px;
+  color: #000000;
   font: 400 10px/1.1 Futura, 'Futura PT', 'Trebuchet MS', sans-serif;
   letter-spacing: .25px;
   text-align: center;
