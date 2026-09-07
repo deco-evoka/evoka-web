@@ -1,6 +1,6 @@
 export const ui = {
   es: {
-    siteTitle: 'Évoka 🎁 Cada detalle, una emoción ', siteDescription: 'Regalos, detalles y piezas con personalidad para celebrar lo que importa.', navSelection: 'Destacados', navCatalog: 'Catálogo', navCategories: 'Categorías', contact: 'Contáctanos',
+    siteTitle: 'Évoka 🎁 Cada detalle, una emoción ', siteDescription: 'Regalos, detalles y piezas con personalidad para celebrar lo que importa.', brandTagline: 'Cada detalle, una emoción', navSelection: 'Destacados', navCatalog: 'Catálogo', navCategories: 'Categorías', contact: 'Contáctanos',
     heroEyebrow: 'Regalos que cuentan algo', heroTitle: 'Pequeñas cosas.', heroTitleAccent: 'Grandes momentos.',
     heroText: 'Una selección de regalos, detalles y piezas especiales para celebrar, sorprender y hacerte sonreír.',
     catalogButton: 'Ver catálogo', whatsappText: 'Hablemos', heroLabel: 'elige', heroLabelAccent: 'bonito',
@@ -20,7 +20,7 @@ export const ui = {
     language: 'Idioma', prev: 'Imagen anterior', next: 'Imagen siguiente', left: 'Desplazar categorías hacia la izquierda', right: 'Desplazar categorías hacia la derecha',
   },
   en: {
-    siteTitle: 'Évoka 🎁 Every detail, an emotion', siteDescription: 'Gifts, thoughtful details and special pieces for the moments that matter.', navSelection: 'Highlights', navCatalog: 'Catalogue', navCategories: 'Categories', contact: 'Contact us',
+    siteTitle: 'Évoka 🎁 Every detail, an emotion', siteDescription: 'Gifts, thoughtful details and special pieces for the moments that matter.', brandTagline: 'Every detail, an emotion', navSelection: 'Highlights', navCatalog: 'Catalogue', navCategories: 'Categories', contact: 'Contact us',
     heroEyebrow: 'Gifts that say something', heroTitle: 'Small things.', heroTitleAccent: 'Big moments.',
     heroText: 'A selection of gifts, thoughtful details and special pieces to celebrate, surprise and make you smile.',
     catalogButton: 'View catalogue', whatsappText: 'Let\'s talk', heroLabel: 'choose', heroLabelAccent: 'beautiful',
@@ -40,7 +40,7 @@ export const ui = {
     language: 'Language', prev: 'Previous image', next: 'Next image', left: 'Scroll categories left', right: 'Scroll categories right',
   },
   fr: {
-    siteTitle: 'Évoka 🎁 Chaque détail, une émotion', siteDescription: 'Des cadeaux, des détails attentionnés et des pièces spéciales pour célébrer ce qui compte.', navSelection: 'Sélection', navCatalog: 'Catalogue', navCategories: 'Catégories', contact: 'Contactez-nous',
+    siteTitle: 'Évoka 🎁 Chaque détail, une émotion', siteDescription: 'Des cadeaux, des détails attentionnés et des pièces spéciales pour célébrer ce qui compte.', brandTagline: 'Chaque détail, une émotion', navSelection: 'Sélection', navCatalog: 'Catalogue', navCategories: 'Catégories', contact: 'Contactez-nous',
     heroEyebrow: 'Des cadeaux qui racontent quelque chose', heroTitle: 'Petites choses.', heroTitleAccent: 'Grands moments.',
     heroText: 'Une sélection de cadeaux, de détails attentionnés et de pièces spéciales pour célébrer, surprendre et sourire.',
     catalogButton: 'Voir le catalogue', whatsappText: 'Parlons-en', heroLabel: 'choisir', heroLabelAccent: 'joli',
