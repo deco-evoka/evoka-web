@@ -27,30 +27,32 @@ const flagByLocale = {
     <a href="#catalogo">{t("navCatalog")}</a>
     <a href="#categorias">{t("navCategories")}</a>
   </nav>
-  <a class="header-contact" href="#contacto"
-    >{t("contact")} <span>↗</span></a
-  ><div class="language-select">
-    <button
-      type="button"
-      class="language-current"
-      id="language-current"
-      aria-expanded="false"
-      aria-controls="language-menu"
-      ><span class="language-flag" set:html={flagByLocale[locale]} /><span
-        >{locale.toUpperCase()}</span
-      ><span class="language-chevron">⌄</span></button
-    ><div class="language-menu" id="language-menu" hidden>
-      {
-        (["es", "en", "fr"] as Locale[]).map((language) => (
-          <a
-            href={language === "es" ? assetUrl("") : assetUrl(`${language}/`)}
-            class:list={{ "is-active": locale === language }}
-          >
-            <span class="language-flag" set:html={flagByLocale[language]} />
-            <span>{language.toUpperCase()}</span>
-          </a>
-        ))
-      }
+  <div class="header-actions">
+    <a class="header-contact" href="#contacto"
+      >{t("contact")} <span>↗</span></a
+    ><div class="language-select">
+      <button
+        type="button"
+        class="language-current"
+        id="language-current"
+        aria-expanded="false"
+        aria-controls="language-menu"
+        ><span class="language-flag" set:html={flagByLocale[locale]} /><span
+          >{locale.toUpperCase()}</span
+        ><span class="language-chevron">⌄</span></button
+      ><div class="language-menu" id="language-menu" hidden>
+        {
+          (["es", "en", "fr"] as Locale[]).map((language) => (
+            <a
+              href={language === "es" ? assetUrl("") : assetUrl(`${language}/`)}
+              class:list={{ "is-active": locale === language }}
+            >
+              <span class="language-flag" set:html={flagByLocale[language]} />
+              <span>{language.toUpperCase()}</span>
+            </a>
+          ))
+        }
+      </div>
     </div>
   </div>
 </header>
