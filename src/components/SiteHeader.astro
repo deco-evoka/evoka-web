@@ -113,7 +113,11 @@ const flagByLocale = {
   });
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
+    const shouldRestoreFocus =
+      menuToggle?.getAttribute("aria-expanded") === "true" &&
+      primaryNavigation?.contains(document.activeElement);
     menuToggle?.setAttribute("aria-expanded", "false");
     primaryNavigation?.classList.remove("is-open");
+    if (shouldRestoreFocus) menuToggle?.focus();
   });
 </script>
