@@ -7,6 +7,15 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
+const editorialKeys = [
+  "heroEditorial01", "heroEditorial02", "heroEditorial03",
+  "heroEditorial04", "heroEditorial05", "heroEditorial06",
+  "heroEditorial07", "heroEditorial08", "heroEditorial09",
+] as const;
+const slides = heroImages.map((image, index) => ({
+  image,
+  lines: t(editorialKeys[index]).split("\n"),
+}));
 ---
 
 <section class="hero wrap">
@@ -29,10 +38,12 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     </div>
     <div class="hero-slides">
       {
-        heroImages.map((image, index) => (
+        slides.map(({ image, lines }, index) => (
           <div
             class={`hero-slide ${index === 0 ? "is-active" : ""}`}
             data-hero-slide={index}
+            data-editorial-first={lines[0]}
+            data-editorial-accent={lines[1]}
           >
             <img
               src={image}
@@ -44,8 +55,8 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
       }
     </div>
     <div class="hero-label">
-      <span>EVK / 2026</span><strong
-        >{t("heroLabel")}<br /><em>{t("heroLabelAccent")}</em></strong
+      <span>EVK / 26</span><strong data-hero-editorial-text
+        >{slides[0].lines[0]}<br /><em data-hero-editorial-accent>{slides[0].lines[1]}</em></strong
       >
     </div>
     <div class="hero-controls" aria-label="Controles de la selección">
@@ -83,6 +94,8 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
   const heroNext = document.querySelector<HTMLButtonElement>(
     "[data-hero-next]",
   )!;
+  const editorialFirst = document.querySelector<HTMLElement>("[data-hero-editorial-text]")!.firstChild!;
+  const editorialAccent = document.querySelector<HTMLElement>("[data-hero-editorial-accent]")!;
   let heroIndex = 0;
   let heroTimer: number | undefined;
   const showHeroSlide = (nextIndex: number) => {
@@ -91,6 +104,9 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
       slide.classList.toggle("is-active", index === heroIndex),
     );
     heroCurrent.textContent = String(heroIndex + 1).padStart(2, "0");
+    const { editorialFirst: first, editorialAccent: accent } = heroSlides[heroIndex].dataset;
+    editorialFirst.textContent = first!;
+    editorialAccent.textContent = accent!;
   };
   const restartHeroTimer = () => {
     window.clearInterval(heroTimer);
@@ -103,6 +119,28 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
   heroNext.addEventListener("click", () => {
     showHeroSlide(heroIndex + 1);
     restartHeroTimer();
+  });
+  // The existing language links load another localized page. Carry the slide once.
+  const storageKey = "evoka:hero-language-slide";
+  try {
+    const saved = sessionStorage.getItem(storageKey);
+    sessionStorage.removeItem(storageKey);
+    if (saved) {
+      const { index, destination } = JSON.parse(saved);
+      if (destination === window.location.pathname && Number.isInteger(index)) {
+        showHeroSlide(index);
+      }
+    }
+  } catch { /* Storage may be unavailable; normal carousel navigation still works. */ }
+  document.querySelectorAll<HTMLAnchorElement>(".language-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      try {
+        sessionStorage.setItem(storageKey, JSON.stringify({
+          index: heroIndex,
+          destination: new URL(link.href).pathname,
+        }));
+      } catch { /* Ignore unavailable session storage. */ }
+    });
   });
   restartHeroTimer();
 </script>

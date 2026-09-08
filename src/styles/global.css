@@ -65,12 +65,12 @@ a {
 }
 
 .hero {
-    min-height: 650px;
+    min-height: 610px;
     display: grid;
     grid-template-columns: minmax(0, .82fr) minmax(0, 1fr);
     align-items: center;
     gap: clamp(48px, 6vw, 96px);
-    padding: 54px 0 105px
+    padding: 14px 0 105px
 }
 
 .hero-copy {
@@ -198,11 +198,11 @@ h2 em {
 
 .hero-label {
     position: absolute;
-    top: 23%;
-    left: 7%;
-    width: 198px;
-    height: 270px;
-    padding: 20px;
+    top: 20%;
+    left: 6%;
+    width: 174px;
+    height: 238px;
+    padding: 17px;
     background: #d28d6a;
     transform: rotate(8deg);
     color: #fff4e7;
@@ -212,12 +212,12 @@ h2 em {
 }
 
 .hero-label span {
-    font-size: 10px;
+    font-size: 9px;
     letter-spacing: 3px
 }
 
 .hero-label strong {
-    font: 500 28px/1.02 'Playfair Display', serif
+    font: 500 25px/1.02 'Playfair Display', serif
 }
 
 .hero-index {
@@ -642,6 +642,11 @@ h2 em {
 }
 
 @media(max-width:850px) {
+    .hero-label {
+        top: 21%;
+        left: 6%
+    }
+
     .hero {
         gap: 35px
     }
@@ -668,7 +673,7 @@ h2 em {
         grid-template-columns: 1fr;
         min-height: 0;
         gap: 38px;
-        padding: 55px 0 75px
+        padding: 30px 0 75px
     }
 
     .hero-copy {
@@ -941,9 +946,10 @@ h2 em {
     }
 
     .hero-label {
-        left: clamp(18px, 18vw, 24%);
-        width: min(180px, calc(100% - 56px));
-        height: min(240px, calc(100% - 74px))
+        left: clamp(18px, 15vw, 21%);
+        width: min(158px, calc(100% - 56px));
+        height: min(211px, calc(100% - 74px));
+        padding: 12px
     }
 
     .hero-control {
