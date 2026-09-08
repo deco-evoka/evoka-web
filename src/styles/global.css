@@ -235,7 +235,7 @@ h2 em {
 
 .promise-band {
     background: var(--cream);
-    padding: 88px 0
+    padding: 56px 0
 }
 
 .promise-grid {
@@ -244,18 +244,85 @@ h2 em {
     gap: clamp(28px, 5vw, 72px)
 }
 
-.promise-grid h2 {
+.promise-copy {
     flex: 0 0 min(260px, 26%);
-    margin: 0;
-    font-family: 'Playfair Display';
-    font-weight: 800;
-    font-style: italic;
-    line-height: 1.03;
-    letter-spacing: -1.5px;
-    font-size: 48px;
+    min-width: 0
 }
 
+.promise-grid h2 {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    font-size: 39px;
+    color: var(--ink)
+}
+
+.promise-description {
+    margin: 20px 0 0;
+    max-width: 38ch;
+    font: 400 15px/1.5 'DM Sans', sans-serif;
+    color: #6b4635
+}
+
+.promise-microaction {
+    position: relative;
+    display: block;
+    margin: 18px 0 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: 600 14px/1.4 'DM Sans', sans-serif;
+    color: var(--ink);
+    text-align: left;
+    text-decoration: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    text-decoration-color: #6b4635;
+    cursor: pointer;
+    transition: text-decoration-color .2s ease
+}
+
+.promise-action-text {
+    text-decoration-line: underline;
+    text-decoration-thickness: inherit;
+    text-underline-offset: inherit;
+    text-decoration-color: inherit
+}
+
+.promise-microaction:hover {
+    text-decoration-color: var(--ink)
+}
+
+.promise-microaction:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 6px
+}
+
+.box-design-gallery:focus {
+    outline: none
+}
+
+.promise-hand-arrow {
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    width: 75px;
+    height: 42px;
+    transform: translateY(-35%);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none
+}
+
+
 .box-design-gallery {
+    position: relative;
     display: flex;
     flex: 1;
     align-items: center;
@@ -642,6 +709,13 @@ h2 em {
 }
 
 @media(max-width:850px) {
+    .promise-hand-arrow {
+        width: 65px;
+        height: 36px
+    }
+
+
+
     .hero-label {
         top: 21%;
         left: 6%
@@ -649,6 +723,14 @@ h2 em {
 
     .hero {
         gap: 35px
+    }
+
+    .promise-band {
+        padding-block: 20px
+    }
+
+    .promise-grid h2 {
+        font-size: 33px
     }
 
     .promise-grid {
@@ -687,6 +769,12 @@ h2 em {
 }
 
 @media(max-width:620px) {
+    .promise-hand-arrow {
+        width: 50px;
+        height: 30px;
+        transform: translateY(-30%) scaleY(-1)
+    }
+
 
     .wrap {
         width: calc(100% - 32px)
@@ -706,9 +794,12 @@ h2 em {
         display: block
     }
 
-    .promise-grid h2 {
-        max-width: 300px;
+    .promise-copy {
         margin-bottom: 22px
+    }
+
+    .promise-grid h2 {
+        font-size: 35px
     }
 
     .box-design-gallery {
@@ -720,7 +811,6 @@ h2 em {
         width: calc((100% - 36px) / 4)
     }
 
-    .promise-grid h2,
     .section-heading h2 {
         font-size: 39px
     }
@@ -806,7 +896,7 @@ h2 em {
     }
 
     .promise-band {
-        padding: 65px 0
+        padding: 24px 0
     }
 
     .box-design-gallery {

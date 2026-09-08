@@ -1,5 +1,7 @@
 export const ui = {
   es: {
+    boxTitle: 'Crea tu regalo', boxTitleAccent: 'a tu manera',
+    boxDescription: 'Elige tus favoritos, personaliza los detalles y nosotros hacemos el resto.', boxMicroaction: 'Explora los pasos',
     siteTitle: 'Évoka 🎁 Cada detalle, una emoción ', siteDescription: 'Regalos, detalles y piezas con personalidad para celebrar lo que importa.', brandTagline: 'Cada detalle, una emoción', navSelection: 'Destacados', navCatalog: 'Catálogo', navCategories: 'Categorías', contact: 'Contáctanos',
     heroEyebrow: 'Regalos con intención', heroTitle: 'Hazlo personal.', heroTitleAccent: 'Hazlo inolvidable.',
     heroText: 'Regalos personalizados para personas, momentos y ocasiones que merecen algo único.',
@@ -29,6 +31,8 @@ export const ui = {
     language: 'Idioma', prev: 'Imagen anterior', next: 'Imagen siguiente', left: 'Desplazar categorías hacia la izquierda', right: 'Desplazar categorías hacia la derecha',
   },
   en: {
+    boxTitle: 'Create your gift', boxTitleAccent: 'your way',
+    boxDescription: 'Choose your favorites, personalize the details, and we’ll take care of the rest.', boxMicroaction: 'Explore the steps',
     siteTitle: 'Évoka 🎁 Every detail, an emotion', siteDescription: 'Gifts, thoughtful details and special pieces for the moments that matter.', brandTagline: 'Every detail, an emotion', navSelection: 'Highlights', navCatalog: 'Catalogue', navCategories: 'Categories', contact: 'Contact us',
     heroEyebrow: 'Gifts with intention', heroTitle: 'Make it personal.', heroTitleAccent: 'Make it unforgettable.',
     heroText: 'Personalised gifts for people, moments and occasions that deserve something unique.',
@@ -58,6 +62,8 @@ export const ui = {
     language: 'Language', prev: 'Previous image', next: 'Next image', left: 'Scroll categories left', right: 'Scroll categories right',
   },
   fr: {
+    boxTitle: 'Créez votre cadeau', boxTitleAccent: 'à votre façon',
+    boxDescription: 'Choisissez vos favoris, personnalisez les détails et nous nous occupons du reste.', boxMicroaction: 'Découvrez les étapes',
     siteTitle: 'Évoka 🎁 Chaque détail, une émotion', siteDescription: 'Des cadeaux, des détails attentionnés et des pièces spéciales pour célébrer ce qui compte.', brandTagline: 'Chaque détail, une émotion', navSelection: 'Sélection', navCatalog: 'Catalogue', navCategories: 'Catégories', contact: 'Contactez-nous',
     heroEyebrow: 'Des cadeaux pensés avec intention', heroTitle: 'Personnalisez-le.', heroTitleAccent: 'Rendez-le inoubliable.',
     heroText: 'Des cadeaux personnalisés pour les personnes, les moments et les occasions qui méritent quelque chose d’unique.',
