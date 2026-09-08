@@ -124,6 +124,21 @@ h2 em {
     line-height: 1.2
 }
 
+.hero-actions .button {
+    width: fit-content;
+    min-width: 0;
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: background .2s ease, transform .2s ease
+}
+
+.hero-actions .button:hover {
+    background: #2b1b15;
+    transform: translateY(-1px)
+}
+
 .button {
     display: inline-flex;
     gap: 28px;
@@ -780,8 +795,9 @@ h2 em {
 
 @media(max-width:440px) {
     .hero-actions {
-        flex-wrap: wrap;
-        gap: 14px 18px
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px
     }
 
     .promise-band {
@@ -818,6 +834,14 @@ h2 em {
 
     .category-row h3 {
         font-size: 22px
+    }
+}
+
+@media(min-width:441px) and (max-width:480px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px
     }
 }
 
@@ -949,17 +973,33 @@ h2 em {
 }
 
 .hero-secondary-link {
-    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding-block: 4px;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 1px;
+    color: var(--ink);
     font-size: 12px;
-    text-decoration: none
+    text-decoration: none;
+    transition: background-size .2s ease, color .2s ease
 }
 
 .hero-secondary-link span {
-    margin-left: 6px
+    margin-left: 0;
+    font: 600 15px/1 Arial, sans-serif;
+    transform: translateY(-.02em)
 }
 
 .hero-secondary-link:hover {
-    color: var(--ink)
+    background-size: 0 1px
+}
+
+.hero-actions a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px
 }
 
 .whatsapp-link svg {
