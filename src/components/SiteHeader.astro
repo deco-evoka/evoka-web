@@ -22,7 +22,16 @@ const flagByLocale = {
       alt="Evoka"
     /><span class="brand-tagline">{t("brandTagline")}</span></a
   >
-  <nav aria-label="Navegación principal">
+  <button
+    type="button"
+    class="menu-toggle"
+    aria-expanded="false"
+    aria-controls="primary-navigation"
+    aria-label="Abrir navegación"
+  >
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="primary-navigation" aria-label="Navegación principal">
     <a href="#catalogo">{t("navCatalog")}</a>
     <a href="#categorias">{t("navCategories")}</a>
     <a href="#seleccion">{t("navSelection")}</a>
@@ -69,6 +78,10 @@ const flagByLocale = {
   const headerSearch = document.querySelector<HTMLAnchorElement>(
     ".header-search",
   );
+  const menuToggle = document.querySelector<HTMLButtonElement>(".menu-toggle");
+  const primaryNavigation = document.querySelector<HTMLElement>(
+    "#primary-navigation",
+  );
   languageCurrent.addEventListener("click", () => {
     const isOpen = languageCurrent.getAttribute("aria-expanded") === "true";
     languageCurrent.setAttribute("aria-expanded", String(!isOpen));
@@ -87,5 +100,20 @@ const flagByLocale = {
     window.setTimeout(() => {
       document.querySelector<HTMLInputElement>("#product-search")?.focus();
     }, 0);
+  });
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    primaryNavigation?.classList.toggle("is-open", !isOpen);
+  });
+  primaryNavigation?.addEventListener("click", (event) => {
+    if (!(event.target instanceof HTMLAnchorElement)) return;
+    menuToggle?.setAttribute("aria-expanded", "false");
+    primaryNavigation.classList.remove("is-open");
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    menuToggle?.setAttribute("aria-expanded", "false");
+    primaryNavigation?.classList.remove("is-open");
   });
 </script>

@@ -23,7 +23,16 @@ html {
 }
 
 body {
-    margin: 0
+    margin: 0;
+    overflow-x: hidden
+}
+
+img {
+    max-width: 100%
+}
+
+h1, h2, h3, p, a, button {
+    overflow-wrap: break-word
 }
 
 a {
@@ -613,20 +622,27 @@ h2 em {
     }
 }
 
+@media(max-width:760px) {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 38px;
+        padding: 55px 0 75px
+    }
+
+    .hero-copy {
+        max-width: 560px
+    }
+}
+
 @media(max-width:620px) {
 
     .wrap {
         width: calc(100% - 32px)
     }
 
-    .hero {
-        grid-template-columns: 1fr;
-        gap: 38px;
-        padding: 55px 0 75px
-    }
-
     .hero h1 {
-        font-size: 56px;
+        font-size: clamp(40px, 13vw, 56px);
         letter-spacing: -3px
     }
 
@@ -735,6 +751,53 @@ h2 em {
 
 }
 
+@media(max-width:440px) {
+    .hero-actions {
+        flex-wrap: wrap;
+        gap: 14px 18px
+    }
+
+    .hero-visual {
+        height: min(350px, 105vw)
+    }
+
+    .promise-band {
+        padding: 65px 0
+    }
+
+    .box-design-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 24px;
+        padding-inline: 10px
+    }
+
+    .box-design-card {
+        width: min(100%, 130px);
+        justify-self: center
+    }
+
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 30px
+    }
+
+    .catalog-image {
+        height: auto;
+        aspect-ratio: 4 / 3
+    }
+
+    .category-row {
+        grid-template-columns: 30px minmax(0, 1fr) 22px;
+        gap: 8px;
+        padding: 21px 0
+    }
+
+    .category-row h3 {
+        font-size: 22px
+    }
+}
+
 .hero-visual {
     isolation: isolate
 }
@@ -831,9 +894,9 @@ h2 em {
     }
 
     .hero-label {
-        left: 24%;
-        width: 180px;
-        height: 240px
+        left: clamp(18px, 18vw, 24%);
+        width: min(180px, calc(100% - 56px));
+        height: min(240px, calc(100% - 74px))
     }
 
     .hero-control {
