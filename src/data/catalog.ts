@@ -102,7 +102,7 @@ export const products: Product[] = [
       81,
       28
     ],
-    "description": "<p><strong>Caja Ternura Natural</strong>, diseñada para transmitir <strong>calma, suavidad y amor</strong> desde el primer instante. Con un estilo <strong>minimalista</strong> y tonos crema, beige y madera natural, combina <strong>belleza, funcionalidad y armonía</strong>, ideal para <strong>baby shower, nacimiento o primera visita al recién nacido</strong>.</p>\n<p><strong>Contenido:</strong></p>\n<p>1 <strong>trapito de apego</strong>, color cúrcuma</p>\n<p>1 <strong>juguete de tela</strong>, color cúrcuma</p>\n<p>1 <strong>babero de tela</strong>, color cúrcuma</p>\n<p>1 <strong>pañal de algodón “Corazones”</strong></p>\n<p>1 <strong>tarjeta “Ternura Natural”</strong></p>\n<p><strong>Producto sin cambios ni devoluciones.</strong></p>"
+    "description": "<p>La <strong>caja Ternura Natural</strong> reúne <strong>calma, suavidad y amor</strong>. Su estilo minimalista y sus tonos crema, beige y madera natural la convierten en un regalo delicado para un <strong>baby shower, un nacimiento o una primera visita al recién nacido</strong>.</p>\n<p><strong>Contenido:</strong></p>\n<p>1 <strong>trapito de apego</strong>, color cúrcuma</p>\n<p>1 <strong>juguete de tela</strong>, color cúrcuma</p>\n<p>1 <strong>babero de tela</strong>, color cúrcuma</p>\n<p>1 <strong>pañal de algodón “Corazones”</strong></p>\n<p>1 <strong>tarjeta “Ternura Natural”</strong></p>\n<p><strong>Producto sin cambios ni devoluciones.</strong></p>"
   },
   {
     "id": "20",
@@ -118,7 +118,7 @@ export const products: Product[] = [
     "imageIds": [
       29
     ],
-    "description": "<p><strong>BONUS:</strong> Tu caja, tu estilo; combínala y elige <strong>un bonus sorpresa</strong>.</p>\n<p>Los productos se incluyen de forma <strong>aleatoria</strong>, según disponibilidad.</p>\n<p><em>Las imágenes del catálogo son referenciales; colores, modelos y diseños pueden variar según disponibilidad sin previo aviso.</em></p>\n<p><strong>Producto sin cambios ni devoluciones.</strong></p>"
+    "description": "<p><strong>Tu caja, tu estilo.</strong> Combínala a tu manera y elige <strong>un bonus sorpresa</strong>.</p>\n<p>Los productos se incluyen de forma <strong>aleatoria</strong>, según disponibilidad.</p>\n<p><em>Las imágenes del catálogo son referenciales; colores, modelos y diseños pueden variar según disponibilidad sin previo aviso.</em></p>\n<p><strong>Producto sin cambios ni devoluciones.</strong></p>"
   },
   {
     "id": "21",
@@ -152,7 +152,7 @@ export const products: Product[] = [
       32,
       33
     ],
-    "description": "<p><strong>Caja de regalo personalizada</strong>, perfecta para celebrar cumpleaños con <strong>estilo, humor y un toque único</strong>. Contiene productos decorativos, divertidos y reutilizables, seleccionados para crear una experiencia <strong>especial y memorable</strong>.</p>\n<p><strong>Contenido:</strong></p>\n<p>1 <strong>bolsa con 5 globos</strong></p>\n<p>1 <strong>vela volcán o vela en cera</strong> (solo para envíos)</p>\n<p>1 <strong>cupcake de peluche </strong></p>\n<p>2 <strong>gafas “My Birthday”</strong></p>\n<p>1 <strong>tarjeta “My Birthday”</strong></p>\n<p><strong>Producto sin cambios ni devoluciones.</strong></p>"
+    "description": "<p>Una <strong>caja de regalo personalizada para cumpleaños</strong>, con <strong>estilo, humor y un toque único</strong>. Reúne productos decorativos, divertidos y reutilizables para una celebración <strong>especial y memorable</strong>.</p>\n<p><strong>Contenido:</strong></p>\n<p>1 <strong>bolsa con 5 globos</strong></p>\n<p>1 <strong>vela volcán o vela en cera</strong> (solo para envíos)</p>\n<p>1 <strong>cupcake de peluche</strong></p>\n<p>2 <strong>gafas “My Birthday”</strong></p>\n<p>1 <strong>tarjeta “My Birthday”</strong></p>\n<p><strong>Producto sin cambios ni devoluciones.</strong></p>"
   },
   {
     "id": "23",
