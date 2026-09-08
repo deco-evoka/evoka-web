@@ -1,9 +1,9 @@
 export const ui = {
   es: {
     siteTitle: 'Évoka 🎁 Cada detalle, una emoción ', siteDescription: 'Regalos, detalles y piezas con personalidad para celebrar lo que importa.', brandTagline: 'Cada detalle, una emoción', navSelection: 'Destacados', navCatalog: 'Catálogo', navCategories: 'Categorías', contact: 'Contáctanos',
-    heroEyebrow: 'Regalos que cuentan algo', heroTitle: 'Pequeñas cosas.', heroTitleAccent: 'Grandes momentos.',
-    heroText: 'Una selección de regalos, detalles y piezas especiales para celebrar, sorprender y hacerte sonreír.',
-    catalogButton: 'Ver catálogo', whatsappText: 'Hablemos', heroLabel: 'elige', heroLabelAccent: 'bonito',
+    heroEyebrow: 'Regalos con intención', heroTitle: 'Hazlo personal.', heroTitleAccent: 'Hazlo inolvidable.',
+    heroText: 'Regalos personalizados para personas, momentos y ocasiones que merecen algo único.',
+    catalogButton: 'Descubrir Évoka', heroSecondaryButton: 'Personaliza tu regalo', whatsappText: 'Hablemos', heroLabel: 'elige', heroLabelAccent: 'bonito',
     promiseEyebrow: 'Nuestra forma de elegir', promiseTitle: 'Lo especial no siempre', promiseTitleAccent: 'hace mucho ruido.',
     promiseText: 'Buscamos piezas con personalidad, regalos que se recuerdan y detalles que transforman un día cualquiera.',
     selectionEyebrow: 'Para empezar por aquí', selectionTitle: 'Destacados ', selectionAccent: 'Évoka', favorites: 'favoritos',
@@ -21,9 +21,9 @@ export const ui = {
   },
   en: {
     siteTitle: 'Évoka 🎁 Every detail, an emotion', siteDescription: 'Gifts, thoughtful details and special pieces for the moments that matter.', brandTagline: 'Every detail, an emotion', navSelection: 'Highlights', navCatalog: 'Catalogue', navCategories: 'Categories', contact: 'Contact us',
-    heroEyebrow: 'Gifts that say something', heroTitle: 'Small things.', heroTitleAccent: 'Big moments.',
-    heroText: 'A selection of gifts, thoughtful details and special pieces to celebrate, surprise and make you smile.',
-    catalogButton: 'View catalogue', whatsappText: 'Let\'s talk', heroLabel: 'choose', heroLabelAccent: 'beautiful',
+    heroEyebrow: 'Gifts with intention', heroTitle: 'Make it personal.', heroTitleAccent: 'Make it unforgettable.',
+    heroText: 'Personalised gifts for people, moments and occasions that deserve something unique.',
+    catalogButton: 'Discover Évoka', heroSecondaryButton: 'Personalise your gift', whatsappText: 'Let\'s talk', heroLabel: 'choose', heroLabelAccent: 'beautiful',
     promiseEyebrow: 'How we choose', promiseTitle: 'Special things do not always', promiseTitleAccent: 'make much noise.',
     promiseText: 'We look for pieces with personality, memorable gifts and details that transform an ordinary day.',
     selectionEyebrow: 'A place to start', selectionTitle: 'Highlights ', selectionAccent: 'Évoka', favorites: 'favourites',
@@ -41,9 +41,9 @@ export const ui = {
   },
   fr: {
     siteTitle: 'Évoka 🎁 Chaque détail, une émotion', siteDescription: 'Des cadeaux, des détails attentionnés et des pièces spéciales pour célébrer ce qui compte.', brandTagline: 'Chaque détail, une émotion', navSelection: 'Sélection', navCatalog: 'Catalogue', navCategories: 'Catégories', contact: 'Contactez-nous',
-    heroEyebrow: 'Des cadeaux qui racontent quelque chose', heroTitle: 'Petites choses.', heroTitleAccent: 'Grands moments.',
-    heroText: 'Une sélection de cadeaux, de détails attentionnés et de pièces spéciales pour célébrer, surprendre et sourire.',
-    catalogButton: 'Voir le catalogue', whatsappText: 'Parlons-en', heroLabel: 'choisir', heroLabelAccent: 'joli',
+    heroEyebrow: 'Des cadeaux pensés avec intention', heroTitle: 'Personnalisez-le.', heroTitleAccent: 'Rendez-le inoubliable.',
+    heroText: 'Des cadeaux personnalisés pour les personnes, les moments et les occasions qui méritent quelque chose d’unique.',
+    catalogButton: 'Découvrir Évoka', heroSecondaryButton: 'Personnalisez votre cadeau', whatsappText: 'Parlons-en', heroLabel: 'choisir', heroLabelAccent: 'joli',
     promiseEyebrow: 'Notre façon de choisir', promiseTitle: 'Le spécial ne fait pas toujours', promiseTitleAccent: 'beaucoup de bruit.',
     promiseText: 'Nous cherchons des pièces avec personnalité, des cadeaux mémorables et des détails qui transforment une journée ordinaire.',
     selectionEyebrow: 'Pour commencer', selectionTitle: 'Vedette ', selectionAccent: 'Évoka', favorites: 'coups de cœur',

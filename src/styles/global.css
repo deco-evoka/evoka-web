@@ -67,38 +67,61 @@ a {
 .hero {
     min-height: 650px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, .82fr) minmax(0, 1fr);
     align-items: center;
-    gap: 80px;
+    gap: clamp(48px, 6vw, 96px);
     padding: 54px 0 105px
 }
 
-.hero h1 {
-    font-size: clamp(50px, 6vw, 84px);
-    line-height: .98;
-    letter-spacing: -4px;
+.hero-copy {
+    width: 100%;
+    max-width: 500px
+}
+
+.hero .eyebrow {
+    margin-bottom: 12px;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 500;
-    margin: 0 0 30px
+    line-height: 1.2
+}
+
+.hero h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(46px, 4.7vw, 64px);
+    line-height: .96;
+    letter-spacing: clamp(-3.5px, -.25vw, -2.5px);
+    font-weight: 500;
+    margin: 0
 }
 
 .hero h1 em,
 h2 em {
     font-family: 'Playfair Display', serif;
-    font-weight: 500
+    font-weight: 500;
+    font-style: italic
 }
 
 .hero-text {
-    max-width: 400px;
-    line-height: 1.7;
+    max-width: 410px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(14px, 1.2vw, 15px);
+    font-weight: 400;
+    line-height: 1.65;
     color: var(--muted);
-    font-size: 15px;
-    margin: 0 0 30px
+    margin: 28px 0 22px
 }
 
 .hero-actions {
     display: flex;
     align-items: center;
-    gap: 22px
+    gap: clamp(18px, 2vw, 24px)
+}
+
+.hero-actions .button,
+.hero-secondary-link {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.2
 }
 
 .button {
@@ -128,7 +151,10 @@ h2 em {
 }
 
 .hero-visual {
-    height: 460px;
+    width: min(100%, 500px);
+    height: auto;
+    aspect-ratio: 4 / 5;
+    justify-self: end;
     background: var(--sage);
     position: relative;
     overflow: hidden
@@ -633,6 +659,11 @@ h2 em {
     .hero-copy {
         max-width: 560px
     }
+
+    .hero-visual {
+        width: 100%;
+        justify-self: stretch
+    }
 }
 
 @media(max-width:620px) {
@@ -642,12 +673,8 @@ h2 em {
     }
 
     .hero h1 {
-        font-size: clamp(40px, 13vw, 56px);
-        letter-spacing: -3px
-    }
-
-    .hero-visual {
-        height: 350px
+        font-size: clamp(43px, 8vw, 52px);
+        letter-spacing: clamp(-3px, -.7vw, -2.5px)
     }
 
     .promise-grid {
@@ -755,10 +782,6 @@ h2 em {
     .hero-actions {
         flex-wrap: wrap;
         gap: 14px 18px
-    }
-
-    .hero-visual {
-        height: min(350px, 105vw)
     }
 
     .promise-band {
@@ -923,6 +946,20 @@ h2 em {
     color: var(--muted);
     font-size: 12px;
     text-decoration: none
+}
+
+.hero-secondary-link {
+    color: var(--muted);
+    font-size: 12px;
+    text-decoration: none
+}
+
+.hero-secondary-link span {
+    margin-left: 6px
+}
+
+.hero-secondary-link:hover {
+    color: var(--ink)
 }
 
 .whatsapp-link svg {
