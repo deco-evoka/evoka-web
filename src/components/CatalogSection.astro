@@ -130,6 +130,8 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
 </style>
 
 <script>
+  import { CATALOG_CATEGORIES } from "../data/catalog";
+
   const search = document.querySelector<HTMLInputElement>("#product-search")!;
   const buttons = [
     ...document.querySelectorAll<HTMLButtonElement>("[data-filter]"),
@@ -178,7 +180,8 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     window.setTimeout(() => product.classList.remove("is-highlighted"), 1200);
   };
 
-  let activeFilter = "all";
+  // The initial product filter does not imply an explicit chip selection.
+  let activeFilter: string = CATALOG_CATEGORIES.SNOOPY_COLLECTION;
   let visibleLimit = catalogPageSize;
   const clearActiveFilter = () => {
     activeFilter = "all";
@@ -285,5 +288,6 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     visibleLimit = catalogPageSize;
     update();
   });
+  materializeDeferredCards();
   update();
 </script>
