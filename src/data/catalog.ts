@@ -194,7 +194,7 @@ export const products: Product[] = [
   {
     "id": "25",
     "reference": "120532",
-    "name": "Cuarzo",
+    "name": "Cuarzo (Unidad)",
     "slug": "brown-bear-vector-graphics",
     "price": 4.132231,
     "stock": 14,
@@ -246,7 +246,7 @@ export const products: Product[] = [
   {
     "id": "29",
     "reference": "120571",
-    "name": "Mini vela",
+    "name": "Mini vela (unidad)",
     "slug": "brown-bear-vector-graphics",
     "price": 4.958678,
     "stock": 6,
@@ -295,7 +295,7 @@ export const products: Product[] = [
   {
     "id": "32",
     "reference": "120537",
-    "name": "Discos desmaquilladores",
+    "name": "Discos desmaquilladores (unidad)",
     "slug": "brown-bear-vector-graphics",
     "price": 2.479339,
     "stock": 12,
@@ -429,7 +429,7 @@ export const products: Product[] = [
   {
     "id": "41",
     "reference": "120553",
-    "name": "Peluche Breakfast",
+    "name": "Peluche Breakfast (Unidad)",
     "slug": "gafas-my-birthday",
     "price": 14.876033,
     "stock": 11,
@@ -484,7 +484,7 @@ export const products: Product[] = [
   {
     "id": "61",
     "reference": "120543",
-    "name": "Antifaz para dormir de seda",
+    "name": "Antifaz para dormir de seda (unidad)",
     "slug": "gafas-my-birthday",
     "price": 4.958678,
     "stock": 20,

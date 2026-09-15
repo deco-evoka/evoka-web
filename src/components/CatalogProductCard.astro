@@ -1,5 +1,6 @@
 ---
 import {
+  excerpt,
   formatPrice,
   localizedCategory,
   localizedProduct,
@@ -32,7 +33,7 @@ const localized = {
   class="catalog-card"
   id={`product-${product.id}`}
   data-catalog-index={index}
-  data-name={`${localized.name} ${product.categories.join(" ")}`.toLowerCase()}
+  data-name={`${localized.name} ${productCopy.name} ${product.categories.join(" ")}`.toLowerCase()}
   data-categories={product.categories.join("|")}
 >
   <button
@@ -67,7 +68,7 @@ const localized = {
       <h3>{localized.name}</h3>
       <strong>{formatPrice(locale, product.price)}</strong>
     </div>
-    <p class="catalog-excerpt">{catalogShortDescriptions[product.id]?.[locale]}</p>
+    <p class="catalog-excerpt">{catalogShortDescriptions[product.id]?.[locale] ?? excerpt(localized.description)}</p>
     <div class="catalog-links">
       <a
         href={whatsappForProduct(locale, product)}
