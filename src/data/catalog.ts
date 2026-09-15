@@ -4,6 +4,8 @@ export const CATALOG_CATEGORIES = {
   WELLNESS_SPA: "Bienestar y spa",
   SNOOPY_COLLECTION: "Colección Snoopy",
   CUSTOM_BOXES: "Box personalizables",
+  CUSTOM_BONUSES: "Bonus personalizables",
+  CUSTOM_SETS: "Set personalizables",
   FRIENDS_BACHELORETTE: "Entre amigos y despedidas",
   PETS: "Mascotas",
   CORPORATE_PACKAGING: "Packaging y regalos corporativos",
@@ -35,6 +37,8 @@ export const categories = [
   CATALOG_CATEGORIES.CORPORATE_PACKAGING,
   CATALOG_CATEGORIES.THERMOS_CUPS,
   CATALOG_CATEGORIES.CREATIVE_STATIONERY,
+  CATALOG_CATEGORIES.CUSTOM_BONUSES,
+  CATALOG_CATEGORIES.CUSTOM_SETS,
 ] as const;
 
 export const products: Product[] = [
@@ -79,7 +83,7 @@ export const products: Product[] = [
     "price": 16.528926,
     "stock": 5,
     "categories": [
-      CATALOG_CATEGORIES.CUSTOM_BOXES,
+      CATALOG_CATEGORIES.CUSTOM_BONUSES,
       CATALOG_CATEGORIES.INTERNAL
     ],
     "imageIds": [
@@ -112,7 +116,7 @@ export const products: Product[] = [
     "price": 16.528926,
     "stock": 5,
     "categories": [
-      CATALOG_CATEGORIES.CUSTOM_BOXES,
+      CATALOG_CATEGORIES.CUSTOM_BONUSES,
       CATALOG_CATEGORIES.INTERNAL
     ],
     "imageIds": [
@@ -280,7 +284,7 @@ export const products: Product[] = [
     "price": 22.31405,
     "stock": 5,
     "categories": [
-      CATALOG_CATEGORIES.CUSTOM_BOXES,
+      CATALOG_CATEGORIES.CUSTOM_BONUSES,
       CATALOG_CATEGORIES.INTERNAL
     ],
     "imageIds": [
@@ -328,7 +332,7 @@ export const products: Product[] = [
     "price": 16.528926,
     "stock": 5,
     "categories": [
-      CATALOG_CATEGORIES.CUSTOM_BOXES,
+      CATALOG_CATEGORIES.CUSTOM_BONUSES,
       CATALOG_CATEGORIES.INTERNAL
     ],
     "imageIds": [
@@ -453,7 +457,7 @@ export const products: Product[] = [
     "price": 16.528926,
     "stock": 5,
     "categories": [
-      CATALOG_CATEGORIES.CUSTOM_BOXES,
+      CATALOG_CATEGORIES.CUSTOM_SETS,
       CATALOG_CATEGORIES.INTERNAL,
     ],
     "imageIds": [
@@ -1058,7 +1062,7 @@ export const products: Product[] = [
     "price": 28.92562,
     "stock": 1,
     "categories": [
-      CATALOG_CATEGORIES.CUSTOM_BOXES,
+      CATALOG_CATEGORIES.CUSTOM_BONUSES,
       CATALOG_CATEGORIES.INTERNAL
     ],
     "imageIds": [
@@ -1069,7 +1073,7 @@ export const products: Product[] = [
   {
     "id": "91",
     "reference": "120591",
-    "name": "Box Sweet Breakfast ☕💝",
+    "name": "Box Sweet Breakfast",
     "slug": "juguete-de-felpa-para-perro",
     "price": 70.247934,
     "stock": 1,
@@ -1085,7 +1089,7 @@ export const products: Product[] = [
   {
     "id": "92",
     "reference": "120592",
-    "name": "Box SPA 🌸",
+    "name": "Box SPA",
     "slug": "juguete-de-felpa-para-perro",
     "price": 53.719008,
     "stock": 1,
@@ -1246,7 +1250,7 @@ export const products: Product[] = [
   {
     "id": "95",
     "reference": "120595",
-    "name": "Set de Termos Divertidos Frutales (x3) 🍋",
+    "name": "Set de Termos Divertidos Frutales (x3)",
     "slug": "juguete-de-felpa-para-perro",
     "price": 16.528926,
     "stock": 1,
