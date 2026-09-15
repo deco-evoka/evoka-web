@@ -23,6 +23,8 @@ const categoryIcons: Record<string, string> = {
   [CATALOG_CATEGORIES.WELLNESS_SPA]: "M12 20C5 20 2 15 2 9c5 0 8 3 10 7 M12 20c7 0 10-5 10-11-5 0-8 3-10 7 M12 16C7 12 8 7 12 3c4 4 5 9 0 13Z",
   [CATALOG_CATEGORIES.SNOOPY_COLLECTION]: "M6 21v-6l-2-3V7l5-4h6l3 5 4 2v4l-5 2v5 M9 4l-1 7q2 4 4 0V5 M16 8h.01 M19 10h3 M6 18h11",
   [CATALOG_CATEGORIES.CUSTOM_BOXES]: giftIcon,
+  [CATALOG_CATEGORIES.CUSTOM_SETS]: "M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z",
+  [CATALOG_CATEGORIES.CUSTOM_BONUSES]: "M5 7h14l2 14H3L5 7Z M9 7V5a3 3 0 0 1 6 0v2",
   [CATALOG_CATEGORIES.FRIENDS_BACHELORETTE]: "M4 3h6v5a3 3 0 0 1-6 0V3Zm10 0h6v5a3 3 0 0 1-6 0V3Z M7 11v9 M17 11v9 M4 20h6 M14 20h6 M4 6h6 M14 6h6",
   [CATALOG_CATEGORIES.PETS]: "M8 15c-5 6 0 8 4 5 4 3 9 1 4-5-2-4-6-4-8 0Z M6 8a2 3 0 1 1-4 0 2 3 0 1 1 4 0 M11 5a2 3 0 1 1-4 0 2 3 0 1 1 4 0 M17 5a2 3 0 1 1-4 0 2 3 0 1 1 4 0 M22 8a2 3 0 1 1-4 0 2 3 0 1 1 4 0",
   [CATALOG_CATEGORIES.CORPORATE_PACKAGING]: "M3 7h18v13H3z M8 7V3h8v4 M3 11q9 6 18 0 M12 12v4",
@@ -105,6 +107,27 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     <p class="empty-state" id="empty-state" hidden>{t("empty")}</p>
   </div>
 </section>
+
+<style>
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 441px) {
+      .catalog-grid {
+        --catalog-row-spacing: 38px;
+        row-gap: 0;
+      }
+
+      :global(#product-grid:has(> .catalog-card:not([hidden]))) {
+        margin-bottom: calc(-1 * var(--catalog-row-spacing));
+      }
+    }
+
+    @media (min-width: 441px) and (max-width: 620px) {
+      .catalog-grid {
+        --catalog-row-spacing: 30px;
+      }
+    }
+  }
+</style>
 
 <script>
   const search = document.querySelector<HTMLInputElement>("#product-search")!;
