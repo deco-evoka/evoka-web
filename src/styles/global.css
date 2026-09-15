@@ -650,8 +650,9 @@ h2 em {
     font-size: 14px
 }
 
-.categories-section {
-    padding-top: 30px;
+.section.categories-section {
+    padding-top: clamp(12px, 1.5vw, 20px);
+    padding-bottom: clamp(28px, 4vw, 48px);
     font-family: 'DM Sans', sans-serif;
     font-style: normal
 }
