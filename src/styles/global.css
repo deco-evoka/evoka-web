@@ -65,12 +65,11 @@ a {
 }
 
 .hero {
-    min-height: 610px;
     display: grid;
     grid-template-columns: minmax(0, .82fr) minmax(0, 1fr);
     align-items: center;
-    gap: clamp(48px, 6vw, 96px);
-    padding: 14px 0 105px
+    gap: clamp(32px, 4vw, 64px);
+    padding: 14px 0 clamp(48px, 5vw, 72px)
 }
 
 .hero-copy {
@@ -166,9 +165,9 @@ h2 em {
 }
 
 .hero-visual {
-    width: min(100%, 500px);
+    width: 100%;
     height: auto;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 1 / 1;
     justify-self: end;
     background: var(--sage);
     position: relative;
@@ -198,7 +197,7 @@ h2 em {
 
 .hero-label {
     position: absolute;
-    /* Equal percentage insets preserve the photograph’s 4:5 ratio. */
+    /* Equal percentage insets follow the square viewport. */
     inset: 11%;
     padding: 6.24%;
     background: #d28d6a;
@@ -844,7 +843,7 @@ h2 em {
         grid-template-columns: 1fr;
         min-height: 0;
         gap: 38px;
-        padding: 30px 0 75px
+        padding: 30px 0 48px
     }
 
     .hero-copy {
