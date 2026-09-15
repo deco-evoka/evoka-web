@@ -1,5 +1,6 @@
 export const ui = {
   es: {
+    catalogViewAll: 'Ver todos los productos',
     catalogDiscover: 'Descubrir',
     boxTitle: 'Crea tu regalo', boxTitleAccent: 'a tu manera',
     boxDescription: 'Elige tus favoritos, personaliza los detalles y nosotros hacemos el resto.', boxMicroaction: 'Explora los pasos',
@@ -36,6 +37,7 @@ export const ui = {
     language: 'Idioma', prev: 'Imagen anterior', next: 'Imagen siguiente', left: 'Desplazar categorías hacia la izquierda', right: 'Desplazar categorías hacia la derecha',
   },
   en: {
+    catalogViewAll: 'View all products',
     catalogDiscover: 'Discover',
     boxTitle: 'Create your gift', boxTitleAccent: 'your way',
     boxDescription: 'Choose your favorites, personalize the details, and we’ll take care of the rest.', boxMicroaction: 'Explore the steps',
@@ -72,6 +74,7 @@ export const ui = {
     language: 'Language', prev: 'Previous image', next: 'Next image', left: 'Scroll categories left', right: 'Scroll categories right',
   },
   fr: {
+    catalogViewAll: 'Voir tous les produits',
     catalogDiscover: 'Découvrir',
     boxTitle: 'Créez votre cadeau', boxTitleAccent: 'à votre façon',
     boxDescription: 'Choisissez vos favoris, personnalisez les détails et nous nous occupons du reste.', boxMicroaction: 'Découvrez les étapes',
