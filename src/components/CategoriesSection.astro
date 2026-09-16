@@ -2,6 +2,7 @@
 import { categoryNavigationLabels } from "../i18n/ui";
 import {
   localizedCategory,
+  visibleCategories,
   translate,
   type Locale,
 } from "../lib/catalog-view";
@@ -13,7 +14,7 @@ interface Props {
 const { locale } = Astro.props;
 const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
 // Presentation order only: category values and filter destinations are unchanged.
-const navigationCategories = [
+const preferredCategoryOrder = [
   "Box personalizables",
   "Amistad y amor",
   "Colección Snoopy",
@@ -27,6 +28,14 @@ const navigationCategories = [
   "Bonus personalizables",
   "Set personalizables",
 ];
+// Membership comes only from the catalog; unknown categories retain source order.
+const categoryRank = (category: string) => {
+  const index = preferredCategoryOrder.indexOf(category);
+  return index === -1 ? Number.POSITIVE_INFINITY : index;
+};
+const navigationCategories = [...visibleCategories].sort(
+  (left, right) => categoryRank(left) - categoryRank(right),
+);
 const additionalCategoriesId = `additional-categories-${locale}`;
 ---
 
