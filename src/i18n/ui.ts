@@ -1,5 +1,6 @@
 export const ui = {
   es: {
+    catalogViewAll: 'Ver todos los productos',
     catalogDiscover: 'Descubrir',
     boxTitle: 'Crea tu regalo', boxTitleAccent: 'a tu manera',
     boxDescription: 'Elige tus favoritos, personaliza los detalles y nosotros hacemos el resto.', boxMicroaction: 'Explora los pasos',
@@ -25,7 +26,8 @@ export const ui = {
     catalogEyebrow: 'Inspírate y encuentra el regalo perfecto', catalogTitle: 'Catálogo', productsReady: 'productos\nlistos para descubrir',
     onrequest: 'A consultar', ask: 'Consultar', searchPlaceholder: 'Buscar un producto', filterAria: 'Filtrar por categoría', available: 'Disponible', soldout: 'Agotado', catalogLoadMore: 'Ver más productos', catalogShowing: 'Mostrando', catalogOf: 'de',
     whatsapp: 'WhatsApp', details: 'Más detalles', close: 'Cerrar', viewProduct: 'Ver producto', empty: 'No hemos encontrado productos con esa búsqueda.',
-    categoriesEyebrow: 'Encuentra tu próximo favorito', categoriesTitle: 'Explora por ', categoriesAccent: 'categoría', products: 'productos',
+    categoriesShowMore: 'Ver más categorías', categoriesShowLess: 'Ver menos categorías',
+    categoriesEyebrow: 'Un detalle para cada momento', categoriesTitle: 'Explora por ', categoriesAccent: 'categoría', products: 'productos',
     footerContact: 'Contacto', footerReply: '🌐 Atención 100 % en línea', footerTagline: 'Cada detalle, una emoción.', footerMade: 'Hecho con intención',
     footerAboutEyebrow: 'Acerca de nosotros', footerAboutSummary: '📦 Envíos desde España y Francia', footerAboutMore: 'Conócenos', footerAboutImageAlt: 'Puente sobre el río', shippingPolicies: 'Políticas de envío', shippingTitle: 'Políticas de envío',
     securePayment: 'Pago seguro', securePaymentEyebrow: 'Compra con tranquilidad', securePaymentIntro: 'Pagos mediante métodos verificados y conexiones cifradas.', securePaymentMore: 'Más información',
@@ -35,6 +37,7 @@ export const ui = {
     language: 'Idioma', prev: 'Imagen anterior', next: 'Imagen siguiente', left: 'Desplazar categorías hacia la izquierda', right: 'Desplazar categorías hacia la derecha',
   },
   en: {
+    catalogViewAll: 'View all products',
     catalogDiscover: 'Discover',
     boxTitle: 'Create your gift', boxTitleAccent: 'your way',
     boxDescription: 'Choose your favorites, personalize the details, and we’ll take care of the rest.', boxMicroaction: 'Explore the steps',
@@ -60,7 +63,8 @@ export const ui = {
     catalogEyebrow: 'Get inspired and find the perfect gift', catalogTitle: 'Catalog', productsReady: 'products\nready to discover',
     onrequest: 'On request', ask : 'Ask us', searchPlaceholder: 'Search for a product', filterAria: 'Filter by category', available: 'Available', soldout: 'Sold out', catalogLoadMore: 'Show more products', catalogShowing: 'Showing', catalogOf: 'of',
     whatsapp: 'WhatsApp', details: 'More details', close: 'Close', viewProduct: 'View product', empty: 'We could not find products matching your search.',
-    categoriesEyebrow: 'Find your next favourite', categoriesTitle: 'Explore by ', categoriesAccent: 'category', products: 'products',
+    categoriesShowMore: 'View more categories', categoriesShowLess: 'View fewer categories',
+    categoriesEyebrow: 'A detail for every moment', categoriesTitle: 'Explore by ', categoriesAccent: 'category', products: 'products',
     footerContact: 'Contact', footerReply: '🌐 100% online service', footerTagline: 'Every detail, an emotion.', footerMade: 'Made with intention',
     footerAboutEyebrow: 'About us', footerAboutSummary: '📦 Shipping from Spain and France', footerAboutMore: 'Meet us', footerAboutImageAlt: 'Bridge over the river', shippingPolicies: 'Shipping policies', shippingTitle: 'Shipping policies',
     securePayment: 'Secure payment', securePaymentEyebrow: 'Shop with confidence', securePaymentIntro: 'Payments through verified methods and encrypted connections.', securePaymentMore: 'More information',
@@ -70,6 +74,7 @@ export const ui = {
     language: 'Language', prev: 'Previous image', next: 'Next image', left: 'Scroll categories left', right: 'Scroll categories right',
   },
   fr: {
+    catalogViewAll: 'Voir tous les produits',
     catalogDiscover: 'Découvrir',
     boxTitle: 'Créez votre cadeau', boxTitleAccent: 'à votre façon',
     boxDescription: 'Choisissez vos favoris, personnalisez les détails et nous nous occupons du reste.', boxMicroaction: 'Découvrez les étapes',
@@ -95,7 +100,8 @@ export const ui = {
     catalogEyebrow: 'Inspirez-vous et trouvez le cadeau parfait', catalogTitle: 'Catalogue', productsReady: 'produits\nà découvrir',
     onrequest: 'Sur demande', ask: 'Demander', searchPlaceholder: 'Rechercher un produit', filterAria: 'Filtrer par catégorie', available: 'Disponible', soldout: 'Épuisé', catalogLoadMore: 'Voir plus de produits', catalogShowing: 'Affichage', catalogOf: 'sur',
     whatsapp: 'WhatsApp', details: 'Plus de détails', close: 'Fermer', viewProduct: 'Voir le produit', empty: 'Aucun produit ne correspond à votre recherche.',
-    categoriesEyebrow: 'Trouvez votre prochain coup de cœur', categoriesTitle: 'Explorer par ', categoriesAccent: 'catégorie', products: 'produits',
+    categoriesShowMore: 'Voir plus de catégories', categoriesShowLess: 'Voir moins de catégories',
+    categoriesEyebrow: 'Un détail pour chaque moment', categoriesTitle: 'Explorer par ', categoriesAccent: 'catégorie', products: 'produits',
     footerContact: 'Contact', footerReply: '🌐 Prise en charge 100 % en ligne', footerTagline: 'Chaque détail, une émotion.', footerMade: 'Fait avec intention',
     footerAboutEyebrow: 'À propos de nous', footerAboutSummary: '📦 Expéditions depuis l\'Espagne et la France', footerAboutMore: 'Nous découvrir', footerAboutImageAlt: 'Pont au-dessus de la rivière', shippingPolicies: 'Politiques d’expédition', shippingTitle: 'Politiques d’expédition',
     securePayment: 'Paiement sécurisé', securePaymentEyebrow: 'Achetez en toute confiance', securePaymentIntro: 'Paiements par des moyens vérifiés et des connexions chiffrées.', securePaymentMore: 'En savoir plus',
@@ -105,6 +111,24 @@ export const ui = {
     language: 'Langue', prev: 'Image précédente', next: 'Image suivante', left: 'Faire défiler les catégories à gauche', right: 'Faire défiler les catégories à droite',
   },
 } as const;
+
+// Labels exclusive to the category navigation; shared catalog labels stay unchanged.
+export const categoryNavigationLabels: Partial<Record<'es' | 'en' | 'fr', Record<string, string>>> = {
+  en: {
+    'Amistad y amor': 'Friendship & love',
+    'Colección Snoopy': 'Snoopy collection',
+    'Bebés y nacimientos': 'Babies & births',
+    'Bienestar y spa': 'Wellness & spa',
+    'Entre amigos y despedidas': 'Friends, hen & stag parties',
+    'Mascotas': 'Pets',
+    'Set personalizables': 'Customisable sets',
+    'Bonus personalizables': 'Customisable bonus',
+    'Box personalizables': 'Customisable boxes',
+    'Termos y tazas': 'Thermos & mugs',
+    'Papelería creativa': 'Creative stationery',
+    'Packaging y regalos corporativos': 'Packaging & corporate gifts',
+  },
+};
 
 export const categoryTranslations: Record<string, Record<'es' | 'en' | 'fr', string>> = {
   'Inicio': { es: 'Inicio', en: 'Home', fr: 'Accueil' },

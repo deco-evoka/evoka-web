@@ -88,6 +88,11 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
         )
       }
     </div>
+    <div class="catalog-pagination" id="catalog-view-all-action" hidden>
+      <button type="button" class="text-link catalog-view-all" id="catalog-view-all">
+        {t("catalogViewAll")} <span aria-hidden="true">→</span>
+      </button>
+    </div>
     <div class="catalog-pagination" id="catalog-pagination">
       <p
         class="catalog-progress"
@@ -109,6 +114,26 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
 </section>
 
 <style>
+  .catalog-view-all {
+    align-self: center;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 0;
+    background: transparent;
+    color: var(--evoka);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+  }
+
+  .catalog-view-all:focus-visible {
+    outline: 2px solid var(--evoka);
+    outline-offset: 4px;
+  }
+
   @supports (grid-template-rows: subgrid) {
     @media (min-width: 441px) {
       .catalog-grid {
@@ -130,6 +155,8 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
 </style>
 
 <script>
+  import { CATALOG_CATEGORIES } from "../data/catalog";
+
   const search = document.querySelector<HTMLInputElement>("#product-search")!;
   const buttons = [
     ...document.querySelectorAll<HTMLButtonElement>("[data-filter]"),
@@ -140,6 +167,8 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
   ];
   const empty = document.querySelector<HTMLElement>("#empty-state")!;
   const pagination = document.querySelector<HTMLElement>("#catalog-pagination")!;
+  const viewAllAction = document.querySelector<HTMLElement>("#catalog-view-all-action")!;
+  const viewAll = document.querySelector<HTMLButtonElement>("#catalog-view-all")!;
   const productGrid = document.querySelector<HTMLElement>("#product-grid")!;
   const loadMore = document.querySelector<HTMLButtonElement>(
     "#catalog-load-more",
@@ -178,7 +207,8 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     window.setTimeout(() => product.classList.remove("is-highlighted"), 1200);
   };
 
-  let activeFilter = "all";
+  // The initial product filter does not imply an explicit chip selection.
+  let activeFilter: string = CATALOG_CATEGORIES.SNOOPY_COLLECTION;
   let visibleLimit = catalogPageSize;
   const clearActiveFilter = () => {
     activeFilter = "all";
@@ -189,6 +219,11 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
   };
   const update = () => {
     const query = search.value.toLowerCase().trim();
+    viewAllAction.hidden = !(
+      activeFilter === CATALOG_CATEGORIES.SNOOPY_COLLECTION &&
+      query.length === 0 &&
+      !buttons.some((button) => button.classList.contains("is-active"))
+    );
     const showsAllMatches = activeFilter !== "all" || query.length > 0;
     const displayLimit = showsAllMatches
       ? Number.POSITIVE_INFINITY
@@ -274,6 +309,12 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
           ?.scrollIntoView({ behavior: "smooth" });
       }),
   );
+  viewAll.addEventListener("click", () => {
+    clearActiveFilter();
+    visibleLimit = catalogPageSize;
+    update();
+    loadMore.focus({ preventScroll: true });
+  });
   loadMore.addEventListener("click", () => {
     materializeDeferredCards(visibleLimit + catalogPageSize);
     visibleLimit += catalogPageSize;
@@ -285,5 +326,6 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     visibleLimit = catalogPageSize;
     update();
   });
+  materializeDeferredCards();
   update();
 </script>
