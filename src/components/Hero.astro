@@ -58,25 +58,25 @@ const slides = heroImages.map((image, index) => ({
       <span>EVK / 26</span><strong data-hero-editorial-text
         >{slides[0].lines[0]}<br /><em data-hero-editorial-accent>{slides[0].lines[1]}</em></strong
       >
-    </div>
-    <div class="hero-controls" aria-label="Controles de la selección">
-      <button
-        type="button"
-        class="hero-control"
-        data-hero-prev
-        aria-label={t("prev")}>←</button
-      >
-      <span class="hero-index"
-        ><b data-hero-current>01</b>
-        <span>/</span>
-        {heroImages.length.toString().padStart(2, "0")}</span
-      >
-      <button
-        type="button"
-        class="hero-control"
-        data-hero-next
-        aria-label={t("next")}>→</button
-      >
+      <div class="hero-controls" aria-label="Controles de la selección">
+        <button
+          type="button"
+          class="hero-control"
+          data-hero-prev
+          aria-label={t("prev")}>←</button
+        >
+        <span class="hero-index"
+          ><b data-hero-current>01</b>
+          <span>/</span>
+          {heroImages.length.toString().padStart(2, "0")}</span
+        >
+        <button
+          type="button"
+          class="hero-control"
+          data-hero-next
+          aria-label={t("next")}>→</button
+        >
+      </div>
     </div>
   </div>
 </section>
