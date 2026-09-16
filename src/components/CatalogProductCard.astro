@@ -188,19 +188,6 @@ const localized = {
     }
   }
 
-  /* Preserve outer spacing without the former subgrid margin compensation. */
-  :global(#product-grid.catalog-grid):has(> .catalog-card:not([hidden])) {
-    --catalog-row-spacing: 24px;
-    row-gap: var(--catalog-row-spacing);
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 620px) {
-    :global(#product-grid.catalog-grid):has(> .catalog-card:not([hidden])) {
-      --catalog-row-spacing: 20px;
-    }
-  }
-
   @media (max-width: 620px) {
     .catalog-card-body .catalog-links {
       gap: 4px 16px;

@@ -78,7 +78,7 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     <div class="catalog-grid" id="product-grid">
       {
         catalogProducts.map((product, index) =>
-          index < CATALOG_PAGE_SIZE ? (
+          product.categories.includes(CATALOG_CATEGORIES.SNOOPY_COLLECTION) ? (
             <CatalogProductCard locale={locale} product={product} index={index} />
           ) : (
             <template data-deferred-card={index}>
@@ -134,24 +134,19 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     outline-offset: 4px;
   }
 
-  @supports (grid-template-rows: subgrid) {
-    @media (min-width: 441px) {
-      .catalog-grid {
-        --catalog-row-spacing: 38px;
-        row-gap: 0;
-      }
+  /* The catalog owns spacing between cards at every breakpoint. */
+  :global(#product-grid.catalog-grid):has(> .catalog-card:not([hidden])) {
+    --catalog-row-spacing: 24px;
+    row-gap: var(--catalog-row-spacing);
+    margin-bottom: 0;
+  }
 
-      :global(#product-grid:has(> .catalog-card:not([hidden]))) {
-        margin-bottom: calc(-1 * var(--catalog-row-spacing));
-      }
-    }
-
-    @media (min-width: 441px) and (max-width: 620px) {
-      .catalog-grid {
-        --catalog-row-spacing: 30px;
-      }
+  @media (max-width: 620px) {
+    :global(#product-grid.catalog-grid):has(> .catalog-card:not([hidden])) {
+      --catalog-row-spacing: 20px;
     }
   }
+
 </style>
 
 <script>
@@ -169,7 +164,6 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
   const pagination = document.querySelector<HTMLElement>("#catalog-pagination")!;
   const viewAllAction = document.querySelector<HTMLElement>("#catalog-view-all-action")!;
   const viewAll = document.querySelector<HTMLButtonElement>("#catalog-view-all")!;
-  const productGrid = document.querySelector<HTMLElement>("#product-grid")!;
   const loadMore = document.querySelector<HTMLButtonElement>(
     "#catalog-load-more",
   )!;
@@ -183,12 +177,15 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
   const deferredCards = () => [
     ...document.querySelectorAll<HTMLTemplateElement>("[data-deferred-card]"),
   ];
-  const materializeDeferredCards = (limit = Number.POSITIVE_INFINITY) => {
+  const materializeDeferredCards = (matches: (card: HTMLElement) => boolean) => {
     deferredCards()
-      .filter((template) => Number(template.dataset.deferredCard) < limit)
+      .filter((template) => {
+        const card = template.content.querySelector<HTMLElement>(".catalog-card");
+        return card !== null && matches(card);
+      })
       .forEach((template) => {
-        productGrid.append(template.content.cloneNode(true));
-        template.remove();
+        // Replace in place to preserve catalog order across selective loads.
+        template.replaceWith(template.content.cloneNode(true));
       });
     cards = [...document.querySelectorAll<HTMLElement>(".catalog-card")];
   };
@@ -228,15 +225,18 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     const displayLimit = showsAllMatches
       ? Number.POSITIVE_INFINITY
       : visibleLimit;
+    const matchesCurrentView = (card: HTMLElement) =>
+      (card.dataset.name?.includes(query) ?? false) &&
+      (activeFilter === "all" ||
+        (card.dataset.categories?.split("|").includes(activeFilter) ?? false));
+    materializeDeferredCards((card) =>
+      matchesCurrentView(card) && Number(card.dataset.catalogIndex ?? 0) < displayLimit,
+    );
     let matches = 0;
     const totalProducts = Number(progress.dataset.total ?? cards.length);
     let hiddenMatches = !showsAllMatches && totalProducts > displayLimit;
     cards.forEach((card) => {
-      const matchesQuery = card.dataset.name?.includes(query) ?? false;
-      const matchesFilter =
-        activeFilter === "all" ||
-        (card.dataset.categories?.split("|").includes(activeFilter) ?? false);
-      const matchesCard = matchesQuery && matchesFilter;
+      const matchesCard = matchesCurrentView(card);
       const index = Number(card.dataset.catalogIndex ?? 0);
       if (matchesCard) {
         matches++;
@@ -269,7 +269,6 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
 
   buttons.forEach((button) =>
     button.addEventListener("click", () => {
-      materializeDeferredCards();
       const wasActive = button.classList.contains("is-active");
       activeFilter = wasActive ? "all" : (button.dataset.filter ?? "all");
       visibleLimit = catalogPageSize;
@@ -316,16 +315,13 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     loadMore.focus({ preventScroll: true });
   });
   loadMore.addEventListener("click", () => {
-    materializeDeferredCards(visibleLimit + catalogPageSize);
     visibleLimit += catalogPageSize;
     update();
   });
   search.addEventListener("input", () => {
     clearActiveFilter();
-    materializeDeferredCards();
     visibleLimit = catalogPageSize;
     update();
   });
-  materializeDeferredCards();
   update();
 </script>
