@@ -27,7 +27,17 @@ const slides = heroImages.map((image, index) => ({
       <a class="button button-dark" href="#catalogo"
         >{t("catalogButton")}</a
       ><a class="hero-secondary-link" href="#categorias"
-        >{t("heroSecondaryButton")} <span>→</span></a
+        ><span class="hero-secondary-text">{t("heroSecondaryButton")}</span>
+        <svg class="hero-secondary-pencil" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <g transform="rotate(40 12 12)">
+            <path d="M9 5a3 3 0 0 1 6 0v12l-3 5-3-5Z" fill="currentColor" fill-opacity=".65" />
+            <path d="M9.5 5h2v12l.5 4-2.5-4Z" fill="#fff9f0" fill-opacity=".65" />
+            <path d="M12 5h2.5v12L12 21Z" fill="currentColor" fill-opacity=".18" />
+            <path d="M9 17h6l-3 5Z" fill="#fff9f0" fill-opacity=".85" />
+            <path d="m10.8 20 1.2 2 1.2-2Z" fill="currentColor" />
+            <path d="M10 5h4" stroke="#fff" stroke-opacity=".5" stroke-width=".7" />
+          </g>
+        </svg></a
       >
     </div>
   </div>
