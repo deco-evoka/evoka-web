@@ -278,6 +278,7 @@ h2 em {
 .promise-microaction {
     position: relative;
     display: block;
+    max-width: 100%;
     margin: 18px 0 0;
     padding: 0;
     border: 0;
@@ -286,22 +287,66 @@ h2 em {
     color: var(--ink);
     text-align: left;
     text-decoration: none;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
-    text-decoration-color: #6b4635;
-    cursor: pointer;
-    transition: text-decoration-color .2s ease
+    cursor: pointer
 }
 
 .promise-action-text {
-    text-decoration-line: underline;
-    text-decoration-thickness: inherit;
-    text-underline-offset: inherit;
-    text-decoration-color: inherit
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    max-width: 100%;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(246, 223, 198, .24);
+    background: color-mix(in srgb, var(--cream) 24%, transparent);
+    -webkit-backdrop-filter: blur(3px) saturate(105%);
+    backdrop-filter: blur(3px) saturate(105%);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12), inset 0 1px 0 rgba(255, 255, 255, .28), inset 0 -2px 3px rgba(36, 20, 14, .06), 0 2px 3px rgba(36, 20, 14, .06), 0 5px 12px rgba(36, 20, 14, .07);
+    text-align: center;
+    text-decoration: none;
+    transition: transform .18s ease, box-shadow .18s ease
 }
 
-.promise-microaction:hover {
-    text-decoration-color: var(--ink)
+.promise-action-text::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 1px;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .20), rgba(255, 255, 255, .04) 35%, rgba(255, 255, 255, 0) 65%);
+    pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .promise-microaction:hover .promise-action-text {
+        transform: translateY(-1px);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14), inset 0 1px 0 rgba(255, 255, 255, .32), inset 0 -2px 3px rgba(36, 20, 14, .065), 0 2px 3px rgba(36, 20, 14, .06), 0 6px 13px rgba(36, 20, 14, .075);
+    }
+}
+
+.promise-microaction:active .promise-action-text {
+    transform: translateY(.5px);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12), inset 0 1px 2px rgba(36, 20, 14, .05), inset 0 -1px 2px rgba(36, 20, 14, .04), 0 1px 3px rgba(36, 20, 14, .05);
+}
+
+@media (max-width: 620px) {
+    .promise-microaction {
+        max-width: calc(100% - 60px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .promise-action-text {
+        transition: none;
+    }
+
+    .promise-microaction:hover .promise-action-text,
+    .promise-microaction:active .promise-action-text {
+        transform: none;
+    }
 }
 
 .promise-microaction:focus-visible {
@@ -315,7 +360,7 @@ h2 em {
 
 .promise-hand-arrow {
     position: absolute;
-    left: calc(100% + 10px);
+    left: calc(100% + 6px);
     top: 50%;
     width: 75px;
     height: 42px;
