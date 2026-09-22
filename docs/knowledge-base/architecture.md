@@ -27,9 +27,12 @@ Existe deliberadamente tanto `/` como `/es/`. No hay redirección entre ambas ru
 
 ## Comportamiento de la página
 
+- Orden de la Home: Hero → PromiseBand → FeaturedSelection (`#seleccion`) → CategoriesSection (`#categorias`) → CatalogSection (`#catalogo`) → footer (`#contacto`). Explora es una lista editorial sin numeración; el Catálogo mantiene sus filtros con iconos, compactos y desplazables horizontalmente hasta 850 px. Los anchors y la selección explícita de categorías permanecen independientes del orden visual.
+
 - Los productos destacados son actualmente `products[3]`, `products[4]` y `products[6]`: IDs 19, 20 y 22. Su orden depende directamente del array.
 - El catálogo visible se ordena alfabéticamente por nombre español en `catalog-view.ts`; la fuente `products` conserva su orden de origen.
-- `CatalogSection.astro` activa inicialmente 20 productos y materializa los siguientes en bloques de 20 mediante el botón de carga. Las tarjetas restantes viven en plantillas HTML inertes, por lo que sus imágenes no pueden solicitarse antes de incorporarlas al DOM; búsqueda y filtros materializan el catálogo completo para poder buscar todos sus resultados.
+- `CatalogSection.astro` presenta inicialmente los 7 productos Snoopy sin marcar un chip. “Ver todos los productos” abre la vista general en bloques de 20. Las tarjetas no Snoopy comienzan en plantillas HTML inertes; el controlador materializa las necesarias para la vista, búsqueda o categoría seleccionada.
+- `selectCategory(category)` establece explícitamente el filtro, reinicia el límite y reutiliza `update()` para resultados, materialización, estado vacío y paginación. Sincroniza los chips presentes y centra el seleccionado cuando existe su contenedor. Las filas `[data-filter-link]` limpian la búsqueda, llaman directamente a esta operación y hacen scroll a `#catalogo`; no requieren chips ni simulan clics. Seleccionar otra vez la misma fila conserva la categoría. Los chips mantienen su toggle manual y conservan el texto de búsqueda. El buscador y “Ver todos” reutilizan la selección `all`. La presentación inicial se distingue mediante estado interno, no por la presencia de chips. No cambia la URL ni los identificadores compartidos ES/FR/EN.
 - `categories` de `catalog.ts` deberán tener siempre como última categoría a `CATALOG_CATEGORIES.INTERNAL` (para mostrarla en la vista inicial), y su categoría principal estará posicionada en la primera posición.
 - La búsqueda compara nombre localizado más categorías en minúsculas.
 - Los filtros utilizan las categorías canónicas en español, aunque su etiqueta visible pueda estar traducida.
