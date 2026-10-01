@@ -27,7 +27,7 @@ Existe deliberadamente tanto `/` como `/es/`. No hay redirección entre ambas ru
 
 ## Comportamiento de la página
 
-- Orden de la Home: Hero → PromiseBand → FeaturedSelection (`#seleccion`) → CategoriesSection (`#categorias`) → CatalogSection (`#catalogo`) → footer (`#contacto`). Explora es una lista editorial sin numeración; el Catálogo mantiene sus filtros con iconos, compactos y desplazables horizontalmente hasta 850 px. Los anchors y la selección explícita de categorías permanecen independientes del orden visual.
+- Orden de la Home: Hero → PromiseBand → FeaturedSelection (`#seleccion`) → CategoriesSection (`#categorias`) → CatalogSection (`#catalogo`) → footer (`#contacto`). Explora es una lista editorial sin numeración; el Catálogo presenta sus filtros con iconos en un grid responsive: 5 columnas por encima de 1100 px, 3 hasta 1100 px, 2 hasta 620 px y 1 hasta 479 px, sin desplazamiento horizontal. Los anchors y la selección explícita de categorías permanecen independientes del orden visual.
 
 - Los productos destacados son actualmente `products[3]`, `products[4]` y `products[6]`: IDs 19, 20 y 22. Su orden depende directamente del array.
 - El catálogo visible se ordena alfabéticamente por nombre español en `catalog-view.ts`; la fuente `products` conserva su orden de origen.
