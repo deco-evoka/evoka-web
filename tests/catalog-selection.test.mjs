@@ -70,6 +70,7 @@ function mount(locale, withChips = true) {
   nodes["#catalog-progress"].dataset = { total: String(products.length), showing: "Showing", of: "of" };
   const filterList = withChips ? element() : null;
   const document = {
+    fonts: { ready: Promise.resolve(), addEventListener() {} },
     querySelector: (selector) => selector === ".filter-list" ? filterList : nodes[selector],
     querySelectorAll: (selector) => ({
       "[data-filter]": chips, "[data-filter-link]": rows,
@@ -78,7 +79,26 @@ function mount(locale, withChips = true) {
       '.featured-image[href^="#product-"]': [],
     })[selector] ?? [],
   };
-  runInNewContext(transpile(source), { document, exports: {}, require: () => ({ CATALOG_CATEGORIES }) });
+  // Selection tests have no rendered labels or layout events. Keep browser
+  // subscriptions inert and flush scheduled layout work deterministically.
+  const frames = new Map();
+  let nextFrame = 0;
+  runInNewContext(transpile(source), {
+    document,
+    window: { addEventListener() {} },
+    ResizeObserver: class { observe() {} },
+    requestAnimationFrame(callback) {
+      frames.set(++nextFrame, callback);
+      return nextFrame;
+    },
+    cancelAnimationFrame(id) { frames.delete(id); },
+    exports: {},
+    require: () => ({ CATALOG_CATEGORIES }),
+  });
+  for (const [id, callback] of frames) {
+    frames.delete(id);
+    callback(0);
+  }
   return {
     nodes, chips, rows,
     visible: () => cards.filter((card) => live.has(card) && !card.hidden),
