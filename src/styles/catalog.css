@@ -261,8 +261,6 @@
 
 .catalog-intro .filter-button.is-active .filter-button__label {
   text-decoration: none;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 2px;
 }
 
 .catalog-intro .search-box:focus-within,

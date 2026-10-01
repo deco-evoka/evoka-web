@@ -1153,10 +1153,10 @@ h2 em {
     border-color: rgba(255, 255, 255, .30)
 }
 
-/* Keep the entire portrait photograph visible on both mobile orientations. */
+/* Fill the photo area without distortion on both mobile orientations. */
 @media (max-width: 620px), (max-height: 500px) and (orientation: landscape) {
     .hero-slide img {
-        object-fit: contain;
+        object-fit: cover;
     }
 
     /* Portrait images occupy the middle 75% of the square on mobile. */

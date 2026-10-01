@@ -138,21 +138,10 @@ const localized = {
     align-items: center;
     min-height: 28px;
     margin-top: 0;
-    padding: 4px 0;
-    border: 0;
     font: 500 13px/1.4 'DM Sans', sans-serif;
     color: var(--evoka);
-    text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 5px;
-  }
-
-  .catalog-card-body .catalog-links a:focus-visible {
-    outline: 2px solid var(--evoka);
-    outline-offset: 3px;
-  }
-
-  .catalog-card-body .catalog-links a {
     flex: 0 0 auto;
     justify-content: center;
     padding: 3px 12px;
@@ -167,15 +156,14 @@ const localized = {
   }
 
   .catalog-card-body .catalog-links a:focus-visible {
+    outline: 2px solid var(--evoka);
+    outline-offset: 3px;
     border-color: rgba(110, 79, 55, 0.35);
   }
 
   @media (hover: hover) and (pointer: fine) {
     .catalog-card-body .catalog-links a:hover {
       text-decoration-thickness: 2px;
-    }
-
-    .catalog-card-body .catalog-links a:hover {
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 248, 238, 0.14));
       border-color: rgba(110, 79, 55, 0.26);
     }
