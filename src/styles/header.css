@@ -8,11 +8,13 @@
   column-gap: clamp(16px, 2vw, 32px);
   width: 100%;
   max-width: none;
-  height: 92px;
+  --header-wave-depth: 39px;
+  min-height: 108px;
+  padding-block: 12px;
   margin: auto;
   padding-inline: max(32px, calc((100vw - 1280px) / 2));
   background: #f3dfc0;
-  margin-bottom: 30px;
+  margin-bottom: var(--header-wave-depth);
 }
 
 .site-header::after {
@@ -20,10 +22,10 @@
   position: absolute;
   z-index: 0;
   right: 0;
-  bottom: -30px;
+  bottom: calc(-1 * var(--header-wave-depth));
   left: 0;
-  height: 34px;
-  background: url('/images/brand/header-cenefa.svg') repeat-x bottom left / 240px 34px;
+  height: calc(var(--header-wave-depth) + 1px);
+  background: url('/images/brand/header-cenefa.svg') repeat-x bottom left / 240px 100%;
   pointer-events: none;
 }
 
@@ -67,6 +69,7 @@
 
 .site-header nav a {
   padding: 11px 10px;
+  white-space: nowrap;
   border-radius: 999px;
   color: var(--evoka);
   font: 600 18px 'DM Sans', sans-serif;
@@ -184,15 +187,7 @@
 @media (max-width: 1024px) {
   .site-header {
     padding-inline: 24px;
-    height: auto;
-    min-height: 100px;
-    padding-block: 8px;
-    margin-bottom: 33px;
-  }
-
-  .site-header::after {
-    bottom: -33px;
-    height: 34px;
+    min-height: 112px;
   }
 }
 
@@ -215,27 +210,25 @@
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 960px) {
   .site-header {
     display: grid;
     grid-template-columns: auto 1fr auto;
     column-gap: 10px;
     width: 100%;
-    min-height: 100px;
+    --header-wave-depth: 33px;
+    min-height: 108px;
     padding-inline: 16px;
-    margin-bottom: 27px;
   }
 
   .site-header::after {
-    bottom: -27px;
-    height: 28px;
-    background-size: 190px 28px;
+    background-size: 190px 100%;
   }
 
   .site-header nav {
     position: absolute;
     z-index: 1;
-    top: calc(100% + 17px);
+    top: calc(100% + var(--header-wave-depth));
     right: 16px;
     left: 16px;
     display: none;
@@ -309,7 +302,6 @@
 
 @media (max-width: 480px) {
   .site-header {
-    min-height: 100px;
     padding-inline: 12px;
   }
 

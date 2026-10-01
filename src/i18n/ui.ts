@@ -1,5 +1,6 @@
 export const ui = {
   es: {
+    openNavigation: 'Abrir navegación',
     catalogViewAll: 'Ver todos los productos',
     catalogDiscover: 'Descubrir',
     boxTitle: 'Crea tu regalo', boxTitleAccent: 'a tu manera',
@@ -37,6 +38,7 @@ export const ui = {
     language: 'Idioma', prev: 'Imagen anterior', next: 'Imagen siguiente', left: 'Desplazar categorías hacia la izquierda', right: 'Desplazar categorías hacia la derecha',
   },
   en: {
+    openNavigation: 'Open navigation',
     catalogViewAll: 'View all products',
     catalogDiscover: 'Discover',
     boxTitle: 'Create your gift', boxTitleAccent: 'your way',
@@ -74,6 +76,7 @@ export const ui = {
     language: 'Language', prev: 'Previous image', next: 'Next image', left: 'Scroll categories left', right: 'Scroll categories right',
   },
   fr: {
+    openNavigation: 'Ouvrir la navigation',
     catalogViewAll: 'Voir tous les produits',
     catalogDiscover: 'Découvrir',
     boxTitle: 'Créez votre cadeau', boxTitleAccent: 'à votre façon',

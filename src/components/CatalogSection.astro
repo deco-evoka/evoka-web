@@ -57,16 +57,22 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
         ><div class="filter-navigation">
           <div class="filter-list" role="group" aria-label={t("filterAria")}>
             {
-              visibleCategories.map((category) => (
+              [visibleCategories.slice(0, 5), visibleCategories.slice(5, 10), visibleCategories.slice(10)].map((group) => (
+                <div class="filter-layout-row">
+                {group.map((category) => (
                 <button
                   type="button"
                   class="filter-button"
                   data-filter={category}
                   aria-pressed="false"
                 >
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d={categoryIcons[category]} /></svg>
-                  <span>{localizedCategory(locale, category)}</span>
+                  <span class="filter-button__content">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d={categoryIcons[category]} /></svg>
+                    <span class="filter-button__label">{localizedCategory(locale, category)}</span>
+                  </span>
                 </button>
+                ))}
+                </div>
               ))
             }
           </div>
@@ -156,7 +162,7 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
   const buttons = [
     ...document.querySelectorAll<HTMLButtonElement>("[data-filter]"),
   ];
-  const filterList = document.querySelector<HTMLElement>(".filter-list")!;
+  const filterList = document.querySelector<HTMLElement>(".filter-list");
   let cards = [
     ...document.querySelectorAll<HTMLElement>(".catalog-card"),
   ];
@@ -207,19 +213,13 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
   // The initial product filter does not imply an explicit chip selection.
   let activeFilter: string = CATALOG_CATEGORIES.SNOOPY_COLLECTION;
   let visibleLimit = catalogPageSize;
-  const clearActiveFilter = () => {
-    activeFilter = "all";
-    buttons.forEach((button) => {
-      button.classList.remove("is-active");
-      button.setAttribute("aria-pressed", "false");
-    });
-  };
+  let hasExplicitSelection = false;
   const update = () => {
     const query = search.value.toLowerCase().trim();
     viewAllAction.hidden = !(
       activeFilter === CATALOG_CATEGORIES.SNOOPY_COLLECTION &&
       query.length === 0 &&
-      !buttons.some((button) => button.classList.contains("is-active"))
+      !hasExplicitSelection
     );
     const showsAllMatches = activeFilter !== "all" || query.length > 0;
     const displayLimit = showsAllMatches
@@ -252,6 +252,34 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     progress.textContent = `${progress.dataset.showing} ${Math.min(displayLimit, matchingTotal)} ${progress.dataset.of} ${matchingTotal}`;
   };
 
+  // Explicit selection works even when no visual chip exists.
+  const selectCategory = (category: string) => {
+    activeFilter = category;
+    hasExplicitSelection = true;
+    visibleLimit = catalogPageSize;
+    buttons.forEach((button) => {
+      const selected = category !== "all" && button.dataset.filter === category;
+      button.classList.toggle("is-active", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+    update();
+
+    const selectedChip = buttons.find(
+      (button) => category !== "all" && button.dataset.filter === category,
+    );
+    if (selectedChip && filterList) {
+      const targetScroll =
+        selectedChip.offsetLeft - (filterList.clientWidth - selectedChip.offsetWidth) / 2;
+      filterList.scrollTo({
+        left: Math.max(
+          0,
+          Math.min(targetScroll, filterList.scrollWidth - filterList.clientWidth),
+        ),
+        behavior: "smooth",
+      });
+    }
+  };
+
   featuredLinks.forEach((link) =>
     link.addEventListener("click", (event) => {
       event.preventDefault();
@@ -270,28 +298,7 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
   buttons.forEach((button) =>
     button.addEventListener("click", () => {
       const wasActive = button.classList.contains("is-active");
-      activeFilter = wasActive ? "all" : (button.dataset.filter ?? "all");
-      visibleLimit = catalogPageSize;
-      buttons.forEach((item) => {
-        const selected = activeFilter !== "all" && item === button;
-        item.classList.toggle("is-active", selected);
-        item.setAttribute("aria-pressed", String(selected));
-      });
-      update();
-      if (!wasActive) {
-        const targetScroll =
-          button.offsetLeft - (filterList.clientWidth - button.offsetWidth) / 2;
-        filterList.scrollTo({
-          left: Math.max(
-            0,
-            Math.min(
-              targetScroll,
-              filterList.scrollWidth - filterList.clientWidth,
-            ),
-          ),
-          behavior: "smooth",
-        });
-      }
+      selectCategory(wasActive ? "all" : (button.dataset.filter ?? "all"));
     }),
   );
 
@@ -299,19 +306,17 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     .querySelectorAll<HTMLButtonElement>("[data-filter-link]")
     .forEach((link) =>
       link.addEventListener("click", () => {
-        const button = buttons.find(
-          (item) => item.dataset.filter === link.dataset.filterLink,
-        );
-        button?.click();
+        const category = link.dataset.filterLink;
+        if (!category) return;
+        search.value = "";
+        selectCategory(category);
         document
           .querySelector<HTMLElement>("#catalogo")
           ?.scrollIntoView({ behavior: "smooth" });
       }),
   );
   viewAll.addEventListener("click", () => {
-    clearActiveFilter();
-    visibleLimit = catalogPageSize;
-    update();
+    selectCategory("all");
     loadMore.focus({ preventScroll: true });
   });
   loadMore.addEventListener("click", () => {
@@ -319,9 +324,52 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     update();
   });
   search.addEventListener("input", () => {
-    clearActiveFilter();
-    visibleLimit = catalogPageSize;
-    update();
+    selectCategory("all");
   });
   update();
+
+  // Size every label by its rendered lines; icons remain in normal flex flow.
+  const filterContents = [...document.querySelectorAll<HTMLElement>(".filter-button__content")];
+  const fitFilterLabels = () => {
+    const properties = ["--filter-content-width", "--filter-content-height", "--filter-label-width", "--filter-label-wrap"];
+    filterContents.forEach((content) => properties.forEach((property) => content.style.removeProperty(property)));
+    const sizes = filterContents.map((content) => {
+      const label = content.querySelector<HTMLElement>(".filter-button__label")!;
+      const range = document.createRange();
+      range.selectNodeContents(label);
+      const lines = [...range.getClientRects()];
+      const bounds = content.getBoundingClientRect();
+      return {
+        content,
+        width: bounds.width,
+        height: bounds.height,
+        labelWidth: Math.min(label.getBoundingClientRect().width, Math.ceil(Math.max(0, ...lines.map((line) => line.width)))),
+      };
+    });
+    sizes.forEach(({ content, width, height, labelWidth }) => {
+      if (!width || !labelWidth) return;
+      // Keep the capsule's original footprint while centering the compact pair.
+      content.style.setProperty("--filter-content-width", `${width}px`);
+      content.style.setProperty("--filter-content-height", `${height}px`);
+      content.style.setProperty("--filter-label-width", `${labelWidth}px`);
+      content.style.setProperty("--filter-label-wrap", "wrap");
+    });
+  };
+  let filterFitFrame = 0;
+  const scheduleFilterFit = () => {
+    cancelAnimationFrame(filterFitFrame);
+    filterFitFrame = requestAnimationFrame(fitFilterLabels);
+  };
+  if (filterList) {
+    let previousWidth = -1;
+    new ResizeObserver(([entry]) => {
+      if (entry.contentRect.width === previousWidth) return;
+      previousWidth = entry.contentRect.width;
+      scheduleFilterFit();
+    }).observe(filterList);
+  }
+  window.addEventListener("resize", scheduleFilterFit);
+  document.fonts.ready.then(scheduleFilterFit);
+  document.fonts.addEventListener("loadingdone", scheduleFilterFit);
+  scheduleFilterFit();
 </script>
