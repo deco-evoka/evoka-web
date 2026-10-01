@@ -66,8 +66,10 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
                   data-filter={category}
                   aria-pressed="false"
                 >
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d={categoryIcons[category]} /></svg>
-                  <span>{localizedCategory(locale, category)}</span>
+                  <span class="filter-button__content">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d={categoryIcons[category]} /></svg>
+                    <span class="filter-button__label">{localizedCategory(locale, category)}</span>
+                  </span>
                 </button>
                 ))}
                 </div>
@@ -325,4 +327,49 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
     selectCategory("all");
   });
   update();
+
+  // Size every label by its rendered lines; icons remain in normal flex flow.
+  const filterContents = [...document.querySelectorAll<HTMLElement>(".filter-button__content")];
+  const fitFilterLabels = () => {
+    const properties = ["--filter-content-width", "--filter-content-height", "--filter-label-width", "--filter-label-wrap"];
+    filterContents.forEach((content) => properties.forEach((property) => content.style.removeProperty(property)));
+    const sizes = filterContents.map((content) => {
+      const label = content.querySelector<HTMLElement>(".filter-button__label")!;
+      const range = document.createRange();
+      range.selectNodeContents(label);
+      const lines = [...range.getClientRects()];
+      const bounds = content.getBoundingClientRect();
+      return {
+        content,
+        width: bounds.width,
+        height: bounds.height,
+        labelWidth: Math.min(label.getBoundingClientRect().width, Math.ceil(Math.max(0, ...lines.map((line) => line.width)))),
+      };
+    });
+    sizes.forEach(({ content, width, height, labelWidth }) => {
+      if (!width || !labelWidth) return;
+      // Keep the capsule's original footprint while centering the compact pair.
+      content.style.setProperty("--filter-content-width", `${width}px`);
+      content.style.setProperty("--filter-content-height", `${height}px`);
+      content.style.setProperty("--filter-label-width", `${labelWidth}px`);
+      content.style.setProperty("--filter-label-wrap", "wrap");
+    });
+  };
+  let filterFitFrame = 0;
+  const scheduleFilterFit = () => {
+    cancelAnimationFrame(filterFitFrame);
+    filterFitFrame = requestAnimationFrame(fitFilterLabels);
+  };
+  if (filterList) {
+    let previousWidth = -1;
+    new ResizeObserver(([entry]) => {
+      if (entry.contentRect.width === previousWidth) return;
+      previousWidth = entry.contentRect.width;
+      scheduleFilterFit();
+    }).observe(filterList);
+  }
+  window.addEventListener("resize", scheduleFilterFit);
+  document.fonts.ready.then(scheduleFilterFit);
+  document.fonts.addEventListener("loadingdone", scheduleFilterFit);
+  scheduleFilterFit();
 </script>
