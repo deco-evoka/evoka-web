@@ -18,6 +18,26 @@
     box-sizing: border-box
 }
 
+@media (hover: hover) and (pointer: fine) {
+    /* Override component cursor rules only; preserve native fallback semantics. */
+    html,
+    html * {
+        cursor: url('/images/brand/heart-cursor.svg') 12 21, var(--evoka-cursor-fallback, auto) !important;
+    }
+
+    html :where(a[href], button, select, summary, label[for], [role="button"], input[type="button"], input[type="submit"], input[type="reset"], input[type="checkbox"], input[type="radio"]) {
+        --evoka-cursor-fallback: pointer;
+    }
+
+    html :where(input:not([type]), input[type="text"], input[type="search"], input[type="email"], input[type="password"], input[type="tel"], input[type="url"], input[type="number"], textarea, [contenteditable="true"]) {
+        --evoka-cursor-fallback: text;
+    }
+
+    html :where(:disabled, [aria-disabled="true"]) {
+        --evoka-cursor-fallback: not-allowed;
+    }
+}
+
 html {
     scroll-behavior: smooth
 }
