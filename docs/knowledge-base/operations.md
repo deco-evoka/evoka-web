@@ -48,7 +48,7 @@ No introducir credenciales ni exports brutos en Git. Usar archivos temporales ig
 
 ## Publicación
 
-El despliegue de producción se realiza mediante GitHub Pages y GitHub Actions. El workflow está en `.github/workflows/astro.yml` y se ejecuta automáticamente con cada push a `main`; también se puede lanzar manualmente desde la pestaña Actions. Usa Node.js `22.12.0` porque la versión actual de Astro requiere Node.js 22.12.0 o superior. El build genera `dist/`, que se publica usando el entorno `github-pages`.
+El despliegue de producción se realiza mediante GitHub Pages y GitHub Actions. El workflow está en `.github/workflows/astro.yml` y se ejecuta automáticamente con cada push a `main`; también se puede lanzar manualmente desde la pestaña Actions. Usa Node.js `22.12.0` porque la versión actual de Astro requiere Node.js 22.12.0 o superior. El workflow ejecuta los nueve tests de selección con `node --test tests/catalog-selection.test.mjs` después de instalar dependencias y antes del build; un fallo impide continuar. El build genera `dist/`, que se publica usando el entorno `github-pages`.
 
 Un `npm run build` sin opciones adicionales usa los valores de `astro.config.mjs`: `site: https://evoka.store` y `base: /`. En desarrollo, `site` es `http://localhost:4321` y `base` sigue siendo `/`.
 

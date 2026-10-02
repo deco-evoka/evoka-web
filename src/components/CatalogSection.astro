@@ -33,6 +33,26 @@ const categoryIcons: Record<string, string> = {
 };
 const { locale } = Astro.props;
 const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
+// Approved size groups reference canonical category IDs, never DOM positions.
+const C = CATALOG_CATEGORIES;
+const responsiveCategoryOrder: Record<Locale, readonly string[]> = {
+  es: [C.PETS, C.THERMOS_CUPS, C.WELLNESS_SPA, C.FRIENDSHIP_LOVE,
+    C.SNOOPY_COLLECTION, C.CREATIVE_STATIONERY, C.CUSTOM_SETS,
+    C.CUSTOM_BOXES, C.BABIES_BIRTHS, C.CUSTOM_BONUSES,
+    C.FRIENDS_BACHELORETTE, C.CORPORATE_PACKAGING],
+  en: [C.PETS, C.BABIES_BIRTHS, C.WELLNESS_SPA, C.THERMOS_CUPS,
+    C.FRIENDSHIP_LOVE, C.SNOOPY_COLLECTION, C.CUSTOM_SETS,
+    C.CREATIVE_STATIONERY, C.CUSTOM_BONUSES, C.CUSTOM_BOXES,
+    C.FRIENDS_BACHELORETTE, C.CORPORATE_PACKAGING],
+  fr: [C.PETS, C.FRIENDSHIP_LOVE, C.WELLNESS_SPA, C.SNOOPY_COLLECTION,
+    C.CREATIVE_STATIONERY, C.THERMOS_CUPS, C.BABIES_BIRTHS,
+    C.CUSTOM_BOXES, C.CUSTOM_SETS, C.CUSTOM_BONUSES,
+    C.CORPORATE_PACKAGING, C.FRIENDS_BACHELORETTE],
+};
+const responsiveCategoryRank = (category: string) => {
+  const rank = responsiveCategoryOrder[locale].indexOf(category);
+  return rank < 0 ? responsiveCategoryOrder[locale].length : rank;
+};
 ---
 
 <section class="catalog-section" id="catalogo">
@@ -64,6 +84,7 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
                   type="button"
                   class="filter-button"
                   data-filter={category}
+                  data-responsive-order={responsiveCategoryRank(category)}
                   aria-pressed="false"
                 >
                   <span class="filter-button__content">
@@ -390,4 +411,30 @@ const t = (key: Parameters<typeof translate>[1]) => translate(locale, key);
   document.fonts.ready.then(scheduleFilterFit);
   document.fonts.addEventListener("loadingdone", scheduleFilterFit);
   scheduleFilterFit();
+</script>
+
+<script>
+  // DOM order also defines Tab/screen-reader order. Move the existing controls,
+  // retaining their listeners, and restore the original desktop groups at 1101px.
+  const categoryPresentation = document.querySelector<HTMLElement>(".filter-list");
+  if (categoryPresentation) {
+    const desktopGroups = [...categoryPresentation.querySelectorAll<HTMLElement>(".filter-layout-row")]
+      .map((row) => ({ row, buttons: [...row.querySelectorAll<HTMLButtonElement>("[data-filter]")] }));
+    const responsiveButtons = desktopGroups.flatMap(({ buttons }) => buttons)
+      .sort((left, right) => Number(left.dataset.responsiveOrder) - Number(right.dataset.responsiveOrder));
+    const responsiveCategories = window.matchMedia("(max-width: 1100px)");
+    const synchronizeCategoryOrder = () => {
+      const focused = document.activeElement;
+      if (responsiveCategories.matches) {
+        categoryPresentation.append(...responsiveButtons);
+      } else {
+        desktopGroups.forEach(({ row, buttons }) => row.append(...buttons));
+      }
+      if (focused instanceof HTMLButtonElement && responsiveButtons.includes(focused)) {
+        focused.focus({ preventScroll: true });
+      }
+    };
+    responsiveCategories.addEventListener("change", synchronizeCategoryOrder);
+    synchronizeCategoryOrder();
+  }
 </script>
