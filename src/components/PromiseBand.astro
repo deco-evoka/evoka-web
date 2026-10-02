@@ -11,7 +11,7 @@ const title = locale === "fr" ? "Créez votre propre box" : locale === "en" ? "C
 const imageAlt = locale === "fr" ? "Étape" : locale === "en" ? "Step" : "Paso";
 ---
 
-<section class="promise-band">
+<section class="promise-band" id="personaliza-tu-regalo">
   <div class="wrap promise-grid">
     <div class="promise-copy">
       <h2>{t("boxTitle")}<br /><em>{t("boxTitleAccent")}</em></h2>
@@ -44,6 +44,13 @@ const imageAlt = locale === "fr" ? "Étape" : locale === "en" ? "Step" : "Paso";
     </div>
   </div>
 </section>
+
+<style>
+  #personaliza-tu-regalo {
+    /* Clear the sticky header and its decorative wave at every breakpoint. */
+    scroll-margin-top: 151px;
+  }
+</style>
 
 <dialog class="box-design-modal" id="box-design-modal" aria-label={title}>
   <div class="box-design-modal-panel">
