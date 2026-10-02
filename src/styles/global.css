@@ -42,6 +42,12 @@ html {
     scroll-behavior: smooth
 }
 
+#categorias,
+#seleccion {
+    /* Match personalization clearance for the sticky header and its wave. */
+    scroll-margin-top: 151px;
+}
+
 body {
     margin: 0;
     overflow-x: hidden

@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Test catalog selection
+        run: node --test tests/catalog-selection.test.mjs
+
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v5

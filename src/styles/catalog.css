@@ -298,43 +298,7 @@
     flex: 0 0 auto;
     width: fit-content;
     max-width: 100%;
-    order: var(--responsive-category-order);
   }
-
-  /* Structural references preserve category IDs, translations and DOM order.
-     Rank intrinsic label lengths from short to long for each language. */
-  .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(1) { --responsive-category-order: 4; } /* Friendship */
-  .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(2) { --responsive-category-order: 9; } /* Babies */
-  .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(3) { --responsive-category-order: 3; } /* Wellness */
-  .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(4) { --responsive-category-order: 5; } /* Snoopy */
-  .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(5) { --responsive-category-order: 8; } /* Boxes */
-  .catalog-intro .filter-layout-row:nth-child(2) > :nth-child(1) { --responsive-category-order: 11; } /* Friends */
-  .catalog-intro .filter-layout-row:nth-child(2) > :nth-child(2) { --responsive-category-order: 1; } /* Pets */
-  .catalog-intro .filter-layout-row:nth-child(2) > :nth-child(3) { --responsive-category-order: 12; } /* Packaging */
-  .catalog-intro .filter-layout-row:nth-child(2) > :nth-child(4) { --responsive-category-order: 2; } /* Thermos */
-  .catalog-intro .filter-layout-row:nth-child(2) > :nth-child(5) { --responsive-category-order: 6; } /* Stationery */
-  .catalog-intro .filter-layout-row:nth-child(3) > :nth-child(1) { --responsive-category-order: 10; } /* Bonus */
-  .catalog-intro .filter-layout-row:nth-child(3) > :nth-child(2) { --responsive-category-order: 7; } /* Sets */
-
-  :lang(en) .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(1) { --responsive-category-order: 5; }
-  :lang(en) .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(2) { --responsive-category-order: 2; }
-  :lang(en) .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(3) { --responsive-category-order: 3; }
-  :lang(en) .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(4) { --responsive-category-order: 6; }
-  :lang(en) .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(5) { --responsive-category-order: 10; }
-  :lang(en) .catalog-intro .filter-layout-row:nth-child(2) > :nth-child(4) { --responsive-category-order: 4; }
-  :lang(en) .catalog-intro .filter-layout-row:nth-child(2) > :nth-child(5) { --responsive-category-order: 8; }
-  :lang(en) .catalog-intro .filter-layout-row:nth-child(3) > :nth-child(1) { --responsive-category-order: 9; }
-  :lang(en) .catalog-intro .filter-layout-row:nth-child(3) > :nth-child(2) { --responsive-category-order: 7; }
-
-  :lang(fr) .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(1) { --responsive-category-order: 2; }
-  :lang(fr) .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(2) { --responsive-category-order: 7; }
-  :lang(fr) .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(4) { --responsive-category-order: 4; }
-  :lang(fr) .catalog-intro .filter-layout-row:nth-child(1) > :nth-child(5) { --responsive-category-order: 8; }
-  :lang(fr) .catalog-intro .filter-layout-row:nth-child(2) > :nth-child(1) { --responsive-category-order: 12; }
-  :lang(fr) .catalog-intro .filter-layout-row:nth-child(2) > :nth-child(3) { --responsive-category-order: 11; }
-  :lang(fr) .catalog-intro .filter-layout-row:nth-child(2) > :nth-child(4) { --responsive-category-order: 6; }
-  :lang(fr) .catalog-intro .filter-layout-row:nth-child(2) > :nth-child(5) { --responsive-category-order: 5; }
-  :lang(fr) .catalog-intro .filter-layout-row:nth-child(3) > :nth-child(2) { --responsive-category-order: 9; }
 }
 
 @media (max-width: 359px) {
